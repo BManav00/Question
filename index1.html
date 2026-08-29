@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Listen Babu 💙🥺</title>
+  
+  <!-- Cute Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-start: #D6F3FF;
+      --bg-mid: #A8E6FF;
+      --bg-end: #89D8FF;
+      --stitch-blue: #3A86FF;
+      --stitch-dark-blue: #1D54B8;
+      --stitch-light-blue: #A2E0FF;
+      --stitch-pink: #FF85A2;
+      --stitch-nose: #162B55;
+      --text-blue: #133D6B;
+      --glow-blue: rgba(58, 134, 255, 0.35);
+      --white: #FFFFFF;
+      --shadow-soft: 0 10px 30px rgba(43, 120, 212, 0.22);
+      --shadow-hover: 0 16px 36px rgba(43, 120, 212, 0.38);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Fredoka', 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, cursive, sans-serif;
+      background: linear-gradient(145deg, var(--bg-start) 0%, var(--bg-mid) 48%, var(--bg-end) 100%);
+      color: var(--text-blue);
+    }
+
+    /* Fullscreen Wrapper */
+    .app-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: filter 0.4s ease, transform 0.4s ease;
+      z-index: 10;
+      padding: 16px;
+    }
+
+    /* Ambient Background Elements (Floating Bubbles, Hearts, Sparkles) */
+    .background-decorations {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .ambient-item {
+      position: absolute;
+      opacity: 0;
+      animation: floatDrift 8s infinite ease-in-out;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85), rgba(162, 224, 255, 0.45) 60%, rgba(58, 134, 255, 0.25) 100%);
+      box-shadow: inset -2px -2px 6px rgba(58, 134, 255, 0.25), 0 4px 10px rgba(0, 160, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      animation: bubbleRise 9s infinite linear;
+      opacity: 0;
+    }
+
+    @keyframes floatDrift {
+      0% {
+        transform: translateY(105vh) scale(0.6) rotate(-10deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.8;
+      }
+      80% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-12vh) scale(1.15) rotate(20deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes bubbleRise {
+      0% {
+        transform: translateY(105vh) translateX(0) scale(0.6);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.75;
+        transform: translateY(80vh) translateX(15px) scale(0.85);
+      }
+      50% {
+        transform: translateY(45vh) translateX(-15px) scale(1);
+      }
+      80% {
+        opacity: 0.75;
+        transform: translateY(15vh) translateX(10px) scale(1.05);
+      }
+      100% {
+        transform: translateY(-10vh) translateX(-5px) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes twinkleSparkle {
+      0%, 100% {
+        transform: scale(0.3) rotate(0deg);
+        opacity: 0.2;
+      }
+      50% {
+        transform: scale(1.25) rotate(45deg);
+        opacity: 0.95;
+      }
+    }
+
+    .twinkle-star {
+      position: absolute;
+      color: #FFFFFF;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 0 15px rgba(160, 230, 255, 0.8);
+      animation: twinkleSparkle 3.5s infinite ease-in-out;
+    }
+
+    /* Main Content Layout */
+    .content-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 20px;
+      z-index: 20;
+    }
+
+    /* Cute Dreamy Heading */
+    .title {
+      font-size: clamp(2.1rem, 5.8vw, 3.4rem);
+      font-weight: 700;
+      color: #0F3763;
+      text-shadow: 0 4px 16px rgba(45, 130, 220, 0.3), 0 2px 0 rgba(255, 255, 255, 0.9);
+      letter-spacing: 0.5px;
+      animation: gentlePulse 3.5s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .title .heart-emoji {
+      display: inline-block;
+      animation: babyPulse 1.5s ease-in-out infinite;
+      filter: drop-shadow(0 2px 8px rgba(58, 134, 255, 0.4));
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.025); }
+    }
+
+    @keyframes babyPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.22) rotate(4deg); }
+    }
+
+    /* Stitch Character Wrapper */
+    .stitch-wrapper {
+      position: relative;
+      width: clamp(210px, 35vw, 280px);
+      height: clamp(210px, 35vw, 280px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: stitchFloat 4s ease-in-out infinite;
+      filter: drop-shadow(0 16px 30px rgba(28, 90, 175, 0.28));
+    }
+
+    .stitch-svg {
+      width: 100%;
+      height: 100%;
+      animation: stitchBreathe 4s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    /* Stitch Ear Wiggle Animations */
+    .ear-left {
+      transform-origin: 85px 125px;
+      animation: earWiggleLeft 5s ease-in-out infinite;
+    }
+
+    .ear-right {
+      transform-origin: 195px 125px;
+      animation: earWiggleRight 5s ease-in-out infinite;
+    }
+
+    @keyframes earWiggleLeft {
+      0%, 75%, 100% { transform: rotate(0deg); }
+      80% { transform: rotate(-7deg); }
+      85% { transform: rotate(4deg); }
+      90% { transform: rotate(-4deg); }
+      95% { transform: rotate(0deg); }
+    }
+
+    @keyframes earWiggleRight {
+      0%, 75%, 100% { transform: rotate(0deg); }
+      80% { transform: rotate(7deg); }
+      85% { transform: rotate(-4deg); }
+      90% { transform: rotate(4deg); }
+      95% { transform: rotate(0deg); }
+    }
+
+    @keyframes stitchFloat {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-9px) rotate(-1.5deg);
+      }
+      75% {
+        transform: translateY(6px) rotate(1.5deg);
+      }
+    }
+
+    @keyframes stitchBreathe {
+      0%, 100% {
+        transform: scale(1, 1);
+      }
+      50% {
+        transform: scale(1.03, 0.975);
+      }
+    }
+
+    /* Yes Button */
+    .btn-yes {
+      position: relative;
+      background: var(--white);
+      color: #1976D2;
+      border: 3px solid #E3F2FD;
+      outline: none;
+      padding: 14px 48px;
+      font-size: clamp(1.3rem, 3.4vw, 1.6rem);
+      font-family: inherit;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft), 0 0 20px rgba(162, 224, 255, 0.5), inset 0 -3px 0 #d0ecff;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-yes:hover {
+      transform: translateY(-6px) scale(1.06);
+      box-shadow: var(--shadow-hover), 0 0 30px rgba(58, 134, 255, 0.4), inset 0 -3px 0 #d0ecff;
+      background: #FFFFFF;
+      color: #0D47A1;
+      border-color: #FFFFFF;
+    }
+
+    .btn-yes:active {
+      transform: translateY(2px) scale(0.96);
+      box-shadow: 0 6px 14px rgba(43, 120, 212, 0.3);
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(12, 36, 68, 0.38);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Modal Card */
+    .modal-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 3px solid rgba(255, 255, 255, 0.95);
+      border-radius: 38px;
+      padding: clamp(28px, 6vw, 44px) clamp(22px, 5vw, 36px);
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+      box-shadow: 0 28px 65px rgba(18, 62, 125, 0.3), 0 0 40px rgba(162, 224, 255, 0.5);
+      transform: scale(0.7) translateY(25px);
+      opacity: 0;
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      overflow: hidden;
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    .modal-overlay.closing .modal-card {
+      transform: scale(0.85) translateY(18px);
+      opacity: 0;
+    }
+
+    /* Modal Title */
+    .modal-title {
+      font-size: clamp(1.6rem, 4.6vw, 2.15rem);
+      font-weight: 700;
+      color: #0F3763;
+      line-height: 1.35;
+      text-shadow: 0 2px 6px rgba(45, 130, 220, 0.2);
+    }
+
+    /* Glowing Beating Heart Section */
+    .heart-stage {
+      position: relative;
+      width: 100px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 4px 0;
+    }
+
+    .glowing-heart {
+      width: 64px;
+      height: 64px;
+      animation: heartbeatPulse 0.95s infinite ease-in-out;
+      filter: drop-shadow(0 0 16px rgba(33, 150, 243, 0.75)) drop-shadow(0 0 32px rgba(66, 165, 245, 0.45));
+      transform-origin: center center;
+    }
+
+    @keyframes heartbeatPulse {
+      0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 12px rgba(33, 150, 243, 0.6));
+      }
+      15% {
+        transform: scale(1.26);
+        filter: drop-shadow(0 0 24px rgba(33, 150, 243, 0.95)) drop-shadow(0 0 40px rgba(100, 181, 246, 0.7));
+      }
+      30% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 14px rgba(33, 150, 243, 0.7));
+      }
+      45% {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 20px rgba(33, 150, 243, 0.85));
+      }
+      65%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 12px rgba(33, 150, 243, 0.6));
+      }
+    }
+
+    /* Orbiting floating hearts around the main heart */
+    .orbit-heart {
+      position: absolute;
+      font-size: 14px;
+      opacity: 0.85;
+      animation: orbitFloat 3s infinite ease-in-out;
+    }
+
+    .orbit-heart:nth-child(1) { top: 0; left: 12px; animation-delay: 0s; }
+    .orbit-heart:nth-child(2) { top: 5px; right: 10px; animation-delay: 0.8s; font-size: 18px; }
+    .orbit-heart:nth-child(3) { bottom: 6px; left: 16px; animation-delay: 1.5s; font-size: 12px; }
+    .orbit-heart:nth-child(4) { bottom: 10px; right: 14px; animation-delay: 2.2s; font-size: 15px; }
+
+    @keyframes orbitFloat {
+      0%, 100% { transform: translateY(0px) scale(0.9); opacity: 0.5; }
+      50% { transform: translateY(-8px) scale(1.2); opacity: 0.95; }
+    }
+
+    /* Mini Smiling Stitch Face */
+    .mini-stitch-box {
+      width: 95px;
+      height: 75px;
+      margin: 0 auto;
+      filter: drop-shadow(0 6px 14px rgba(28, 90, 175, 0.2));
+      animation: miniStitchWiggle 3.2s ease-in-out infinite;
+    }
+
+    @keyframes miniStitchWiggle {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-4deg) scale(1.04); }
+      75% { transform: rotate(4deg) scale(1.04); }
+    }
+
+    /* Close Button (Okayyy 💙) */
+    .btn-close {
+      background: linear-gradient(135deg, #42A5F5, #1E88E5);
+      color: var(--white);
+      border: none;
+      outline: none;
+      padding: 12px 40px;
+      font-size: 1.25rem;
+      font-family: inherit;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(30, 136, 229, 0.38), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+      letter-spacing: 0.4px;
+    }
+
+    .btn-close:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 12px 28px rgba(30, 136, 229, 0.5);
+      background: linear-gradient(135deg, #64B5F6, #1976D2);
+    }
+
+    .btn-close:active {
+      transform: translateY(1px) scale(0.96);
+    }
+
+    /* Confetti Particle on Click */
+    .burst-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 150;
+      animation: particleBurst 1.25s forwards cubic-bezier(0.12, 0.84, 0.4, 1);
+    }
+
+    @keyframes particleBurst {
+      0% {
+        transform: translate(0, 0) scale(0.4) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--tx), var(--ty)) scale(1.35) rotate(var(--rot));
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Ambient Bubbles, Hearts & Sparkles -->
+  <div class="background-decorations" id="bgDecorations"></div>
+
+  <!-- Main View -->
+  <main class="app-container" id="appContainer">
+    <div class="content-box">
+      <!-- Heading -->
+      <h1 class="title">
+        Listen Babu <span class="heart-emoji">💙🥺</span>
+      </h1>
+
+      <!-- Cute Stitch Character SVG -->
+      <div class="stitch-wrapper" aria-label="Cute Kawaii Stitch">
+        <svg class="stitch-svg" viewBox="0 0 280 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Stitch Ear Pink Gradient -->
+            <linearGradient id="earInnerGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF9BBB" />
+              <stop offset="100%" stop-color="#8C2D65" />
+            </linearGradient>
+            <linearGradient id="earInnerGradRight" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FF9BBB" />
+              <stop offset="100%" stop-color="#8C2D65" />
+            </linearGradient>
+            <!-- Blue Glow Radial -->
+            <radialGradient id="stitchGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(162, 224, 255, 0.5)" />
+              <stop offset="100%" stop-color="rgba(162, 224, 255, 0)" />
+            </radialGradient>
+          </defs>
+
+          <!-- Soft Aura Glow behind Stitch -->
+          <circle cx="140" cy="145" r="115" fill="url(#stitchGlow)" />
+
+          <!-- Stitch Left Ear (Wiggle Animation) -->
+          <g class="ear-left">
+            <!-- Outer Ear -->
+            <path d="M 90 120 C 50 100 15 45 18 18 C 22 8 36 12 55 35 C 75 60 98 95 105 125 Z" fill="#2E79D8" stroke="#1D4E96" stroke-width="4" stroke-linejoin="round" />
+            <!-- Ear Notch (Classic Stitch notch) -->
+            <path d="M 32 30 C 38 34 39 42 33 46 C 26 51 22 42 27 34" fill="#2E79D8" />
+            <!-- Inner Ear Pink -->
+            <path d="M 85 115 C 55 98 28 55 28 32 C 34 26 44 32 60 52 C 76 72 92 98 96 120 Z" fill="url(#earInnerGradLeft)" opacity="0.9" />
+          </g>
+
+          <!-- Stitch Right Ear (Wiggle Animation) -->
+          <g class="ear-right">
+            <!-- Outer Ear -->
+            <path d="M 190 120 C 230 100 265 45 262 18 C 258 8 244 12 225 35 C 205 60 182 95 175 125 Z" fill="#2E79D8" stroke="#1D4E96" stroke-width="4" stroke-linejoin="round" />
+            <!-- Inner Ear Pink -->
+            <path d="M 195 115 C 225 98 252 55 252 32 C 246 26 236 32 220 52 C 204 72 188 98 184 120 Z" fill="url(#earInnerGradRight)" opacity="0.9" />
+          </g>
+
+          <!-- Stitch Body (Chubby Cute sitting pose) -->
+          <ellipse cx="140" cy="205" rx="68" ry="46" fill="#2E79D8" stroke="#1D4E96" stroke-width="5" />
+          <!-- Light Blue Tummy Patch -->
+          <ellipse cx="140" cy="204" rx="42" ry="32" fill="#88D4FF" />
+
+          <!-- Stitch Feet / Paws -->
+          <ellipse cx="88" cy="226" rx="20" ry="15" fill="#2E79D8" stroke="#1D4E96" stroke-width="4" />
+          <ellipse cx="88" cy="227" rx="12" ry="8" fill="#1D4E96" opacity="0.4" />
+          <ellipse cx="192" cy="226" rx="20" ry="15" fill="#2E79D8" stroke="#1D4E96" stroke-width="4" />
+          <ellipse cx="192" cy="227" rx="12" ry="8" fill="#1D4E96" opacity="0.4" />
+
+          <!-- Stitch Head -->
+          <ellipse cx="140" cy="132" rx="76" ry="65" fill="#2E79D8" stroke="#1D4E96" stroke-width="5" />
+
+          <!-- Tufts of Hair on Head -->
+          <path d="M 135 68 Q 138 52 142 54 Q 140 64 144 68" stroke="#1D4E96" stroke-width="4.5" stroke-linecap="round" fill="#2E79D8" />
+          <path d="M 142 68 Q 148 55 152 58 Q 147 65 149 69" stroke="#1D4E96" stroke-width="4.5" stroke-linecap="round" fill="#2E79D8" />
+
+          <!-- Eye Surrounds (Lighter Blue eye patches) -->
+          <path d="M 85 105 C 72 118 72 146 95 148 C 112 149 116 128 112 112 C 108 98 94 96 85 105 Z" fill="#75C6FF" opacity="0.9" />
+          <path d="M 195 105 C 208 118 208 146 185 148 C 168 149 164 128 168 112 C 172 98 186 96 195 105 Z" fill="#75C6FF" opacity="0.9" />
+
+          <!-- Big Shiny Eyes -->
+          <!-- Left Eye -->
+          <ellipse cx="96" cy="126" rx="14" ry="17" fill="#13233F" />
+          <ellipse cx="93" cy="120" rx="5.5" ry="7" fill="#FFFFFF" />
+          <circle cx="102" cy="133" r="2.8" fill="#FFFFFF" />
+          <circle cx="91" cy="134" r="1.8" fill="#7EC6FF" />
+
+          <!-- Right Eye -->
+          <ellipse cx="184" cy="126" rx="14" ry="17" fill="#13233F" />
+          <ellipse cx="181" cy="120" rx="5.5" ry="7" fill="#FFFFFF" />
+          <circle cx="190" cy="133" r="2.8" fill="#FFFFFF" />
+          <circle cx="179" cy="134" r="1.8" fill="#7EC6FF" />
+
+          <!-- Rosy Cheeks -->
+          <ellipse cx="72" cy="148" rx="14" ry="8" fill="#FF8CAE" opacity="0.8" />
+          <ellipse cx="208" cy="148" rx="14" ry="8" fill="#FF8CAE" opacity="0.8" />
+          <!-- Cheek Sparkle Highlights -->
+          <circle cx="68" cy="146" r="1.8" fill="#FFFFFF" />
+          <circle cx="212" cy="146" r="1.8" fill="#FFFFFF" />
+
+          <!-- Big Cute Stitch Blue-Black Nose -->
+          <path d="M 125 130 C 132 126 148 126 155 130 C 160 135 152 147 140 147 C 128 147 120 135 125 130 Z" fill="#162B55" />
+          <!-- Nose Bridge Highlight -->
+          <ellipse cx="140" cy="131" rx="7" ry="2.5" fill="#4B77BE" opacity="0.8" />
+
+          <!-- Happy Stitch Smile -->
+          <path d="M 112 152 Q 140 174 168 152" stroke="#162B55" stroke-width="4.5" stroke-linecap="round" fill="none" />
+          <!-- Open Mouth / Tongue -->
+          <path d="M 124 159 C 124 173 156 173 156 159 Z" fill="#FF6B93" />
+          <!-- Tiny Cute Fangs -->
+          <polygon points="120,154 125,160 127,154" fill="#FFFFFF" />
+          <polygon points="160,154 155,160 153,154" fill="#FFFFFF" />
+
+          <!-- Front Paws holding a glowing heart -->
+          <!-- Little glowing heart in Stitch's hands -->
+          <g transform="translate(140, 192) scale(0.9)">
+            <path d="M 0 -8 C -7 -17 -19 -8 -19 3 C -19 13 0 22 0 22 C 0 22 19 13 19 3 C 19 -8 7 -17 0 -8 Z" fill="#38B6FF" filter="drop-shadow(0 0 8px rgba(56, 182, 255, 0.8))" />
+            <circle cx="-5" cy="-1" r="2.5" fill="#FFFFFF" opacity="0.75" />
+          </g>
+
+          <!-- Left Paw -->
+          <ellipse cx="106" cy="192" rx="16" ry="13" fill="#2E79D8" stroke="#1D4E96" stroke-width="3.5" transform="rotate(18 106 192)" />
+          <circle cx="106" cy="190" r="4" fill="#75C6FF" />
+
+          <!-- Right Paw -->
+          <ellipse cx="174" cy="192" rx="16" ry="13" fill="#2E79D8" stroke="#1D4E96" stroke-width="3.5" transform="rotate(-18 174 192)" />
+          <circle cx="174" cy="190" r="4" fill="#75C6FF" />
+        </svg>
+      </div>
+
+      <!-- Yes Button -->
+      <button class="btn-yes" id="yesBtn" aria-haspopup="dialog">
+        Yes 💙
+      </button>
+    </div>
+  </main>
+
+  <!-- Dreamy Cute Modal Popup -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalQuestion">
+    <div class="modal-card">
+      <h2 class="modal-title" id="modalQuestion">
+        Don't Overthink Riyooo 💙🥹
+      </h2>
+
+      <!-- Beating Glowing Blue Heart with Orbiting Hearts -->
+      <div class="heart-stage">
+        <span class="orbit-heart">💙</span>
+        <span class="orbit-heart">✨</span>
+        <span class="orbit-heart">🩵</span>
+        <span class="orbit-heart">💫</span>
+
+        <svg class="glowing-heart" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="heartGrad" cx="35%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#BAE6FD" />
+              <stop offset="40%" stop-color="#38BDF8" />
+              <stop offset="85%" stop-color="#0284C7" />
+              <stop offset="100%" stop-color="#0369A1" />
+            </radialGradient>
+          </defs>
+          <path d="M 50 20 C 30 -5 -5 15 5 45 C 13 65 50 90 50 90 C 50 90 87 65 95 45 C 105 15 70 -5 50 20 Z" fill="url(#heartGrad)" stroke="#E0F2FE" stroke-width="2.5" />
+          <!-- Inner soft highlight -->
+          <ellipse cx="34" cy="32" rx="10" ry="6" fill="#FFFFFF" opacity="0.6" transform="rotate(-30 34 32)" />
+        </svg>
+      </div>
+
+      <!-- Tiny Smiling Stitch Face -->
+      <div class="mini-stitch-box">
+        <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+          <!-- Mini Ears -->
+          <path d="M 45 60 C 25 45 5 15 8 5 C 10 0 20 2 32 15 C 44 28 50 48 55 62 Z" fill="#2E79D8" stroke="#1D4E96" stroke-width="3" />
+          <path d="M 42 56 C 28 44 14 20 14 10 C 18 8 24 10 32 20 Z" fill="#FF85A2" />
+
+          <path d="M 115 60 C 135 45 155 15 152 5 C 150 0 140 2 128 15 C 116 28 110 48 105 62 Z" fill="#2E79D8" stroke="#1D4E96" stroke-width="3" />
+          <path d="M 118 56 C 132 44 146 20 146 10 C 142 8 136 10 128 20 Z" fill="#FF85A2" />
+
+          <!-- Face -->
+          <ellipse cx="80" cy="72" rx="46" ry="38" fill="#2E79D8" stroke="#1D4E96" stroke-width="4" />
+          <!-- Eye Patches -->
+          <path d="M 48 60 C 40 68 40 82 54 84 C 64 85 66 73 64 64 Z" fill="#75C6FF" opacity="0.9" />
+          <path d="M 112 60 C 120 68 120 82 106 84 C 96 85 94 73 96 64 Z" fill="#75C6FF" opacity="0.9" />
+
+          <!-- Happy Closed Eyes (Smiling ^_^) -->
+          <path d="M 48 68 Q 55 60 62 68" stroke="#13233F" stroke-width="3.5" stroke-linecap="round" fill="none" />
+          <path d="M 98 68 Q 105 60 112 68" stroke="#13233F" stroke-width="3.5" stroke-linecap="round" fill="none" />
+
+          <!-- Rosy Cheeks -->
+          <ellipse cx="40" cy="78" rx="9" ry="5.5" fill="#FF8CAE" opacity="0.9" />
+          <ellipse cx="120" cy="78" rx="9" ry="5.5" fill="#FF8CAE" opacity="0.9" />
+
+          <!-- Nose -->
+          <ellipse cx="80" cy="72" rx="9" ry="6" fill="#162B55" />
+          <ellipse cx="80" cy="70.5" rx="4" ry="1.5" fill="#4B77BE" opacity="0.8" />
+
+          <!-- Open Sweet Smile -->
+          <path d="M 70 82 Q 80 94 90 82" stroke="#162B55" stroke-width="3" stroke-linecap="round" fill="none" />
+          <path d="M 73 83 C 73 91 87 91 87 83 Z" fill="#FF6B93" />
+        </svg>
+      </div>
+
+      <!-- Close Button -->
+      <button class="btn-close" id="closeBtn">
+        Okayyy 💙
+      </button>
+    </div>
+  </div>
+
+  <!-- Vanilla JavaScript Logic + Web Audio API Synthesizer -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const yesBtn = document.getElementById('yesBtn');
+      const closeBtn = document.getElementById('closeBtn');
+      const modalOverlay = document.getElementById('modalOverlay');
+      const bgDecorations = document.getElementById('bgDecorations');
+
+      // 1. Decorative Floating Bubbles, Blue Hearts & Sparkles
+      const icons = ['💙', '🩵', '✨', '🫧', '💫', '🌊', '🌟'];
+      const count = 28;
+
+      for (let i = 0; i < count; i++) {
+        const rand = Math.random();
+
+        if (rand < 0.4) {
+          // Floating Bubbles
+          const bubble = document.createElement('div');
+          bubble.className = 'bubble';
+          const size = Math.random() * 26 + 14;
+          bubble.style.width = `${size}px`;
+          bubble.style.height = `${size}px`;
+          bubble.style.left = `${Math.random() * 96}%`;
+          bubble.style.animationDuration = `${Math.random() * 6 + 7}s`;
+          bubble.style.animationDelay = `${Math.random() * 8}s`;
+          bgDecorations.appendChild(bubble);
+        } else if (rand < 0.75) {
+          // Floating Ambient Icons (Hearts / Sparkles)
+          const item = document.createElement('div');
+          item.className = 'ambient-item';
+          item.textContent = icons[Math.floor(Math.random() * icons.length)];
+          item.style.fontSize = `${Math.random() * 18 + 14}px`;
+          item.style.left = `${Math.random() * 95}%`;
+          item.style.animationDuration = `${Math.random() * 5 + 6.5}s`;
+          item.style.animationDelay = `${Math.random() * 7}s`;
+          bgDecorations.appendChild(item);
+        } else {
+          // Twinkle Stars
+          const star = document.createElement('div');
+          star.className = 'twinkle-star';
+          star.textContent = '✦';
+          star.style.fontSize = `${Math.random() * 15 + 10}px`;
+          star.style.left = `${Math.random() * 95}%`;
+          star.style.top = `${Math.random() * 90}%`;
+          star.style.animationDuration = `${Math.random() * 2 + 2.5}s`;
+          star.style.animationDelay = `${Math.random() * 4}s`;
+          bgDecorations.appendChild(star);
+        }
+      }
+
+      // 2. Confetti Particle Burst on "Yes 💙" Click
+      function createBlueBurst(x, y) {
+        const burstCount = 20;
+        const emojis = ['💙', '🩵', '✨', '🫧', '💫', '🌟'];
+
+        for (let i = 0; i < burstCount; i++) {
+          const p = document.createElement('div');
+          p.className = 'burst-particle';
+          p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+          const angle = (Math.PI * 2 * i) / burstCount + (Math.random() - 0.5) * 0.4;
+          const distance = Math.random() * 120 + 80;
+          const tx = `${Math.cos(angle) * distance}px`;
+          const ty = `${Math.sin(angle) * distance - 25}px`;
+          const rot = `${(Math.random() - 0.5) * 100}deg`;
+
+          p.style.setProperty('--tx', tx);
+          p.style.setProperty('--ty', ty);
+          p.style.setProperty('--rot', rot);
+          p.style.left = `${x}px`;
+          p.style.top = `${y}px`;
+          p.style.fontSize = `${Math.random() * 16 + 18}px`;
+
+          document.body.appendChild(p);
+
+          setTimeout(() => {
+            p.remove();
+          }, 1250);
+        }
+      }
+
+      // 3. Web Audio API - Soothing Calming Heartbeat Synthesizer
+      let audioCtx = null;
+      let heartbeatInterval = null;
+      let masterGain = null;
+
+      function initAudio() {
+        if (!audioCtx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) {
+            audioCtx = new AudioContext();
+          }
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }
+
+      // Play a single soft thud pulse (lub or dub)
+      function playThud(time, freqStart, freqEnd, duration, volume) {
+        if (!audioCtx) return;
+
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          const filter = audioCtx.createBiquadFilter();
+
+          // Low-pass filter for a warm, soft, muffled heartbeat sound
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(110, time);
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freqStart, time);
+          osc.frequency.exponentialRampToValueAtTime(freqEnd, time + duration);
+
+          // Gentle envelope to prevent clicks
+          gain.gain.setValueAtTime(0.0001, time);
+          gain.gain.linearRampToValueAtTime(volume, time + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(masterGain || audioCtx.destination);
+
+          osc.start(time);
+          osc.stop(time + duration + 0.05);
+        } catch (e) {
+          console.warn('Audio play error:', e);
+        }
+      }
+
+      function startHeartbeatSound() {
+        initAudio();
+        if (!audioCtx) return;
+
+        // Master gain for smooth fade-in and fade-out
+        masterGain = audioCtx.createGain();
+        masterGain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+        masterGain.gain.linearRampToValueAtTime(0.35, audioCtx.currentTime + 0.6);
+        masterGain.connect(audioCtx.destination);
+
+        function triggerLubDub() {
+          if (!audioCtx || audioCtx.state !== 'running') return;
+          const now = audioCtx.currentTime;
+          
+          // Lub (1st beat) - warm and deep
+          playThud(now, 60, 38, 0.14, 0.45);
+          
+          // Dub (2nd beat, ~0.16s later) - softer
+          playThud(now + 0.16, 52, 32, 0.12, 0.32);
+        }
+
+        // Trigger first beat immediately
+        triggerLubDub();
+
+        // Repeat every 950ms (~63 BPM - soothing resting heart rate)
+        heartbeatInterval = setInterval(triggerLubDub, 950);
+      }
+
+      function stopHeartbeatSound() {
+        if (heartbeatInterval) {
+          clearInterval(heartbeatInterval);
+          heartbeatInterval = null;
+        }
+
+        if (masterGain && audioCtx) {
+          try {
+            masterGain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.3);
+            setTimeout(() => {
+              masterGain = null;
+            }, 350);
+          } catch (e) {
+            masterGain = null;
+          }
+        }
+      }
+
+      // 4. Open Modal & Play Heartbeat
+      yesBtn.addEventListener('click', () => {
+        const rect = yesBtn.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        createBlueBurst(centerX, centerY);
+
+        modalOverlay.classList.remove('closing');
+        modalOverlay.classList.add('active');
+
+        startHeartbeatSound();
+      });
+
+      // 5. Close Modal Function
+      function closeModal() {
+        stopHeartbeatSound();
+        modalOverlay.classList.add('closing');
+        setTimeout(() => {
+          modalOverlay.classList.remove('active');
+          modalOverlay.classList.remove('closing');
+        }, 380);
+      }
+
+      closeBtn.addEventListener('click', closeModal);
+
+      // Close on backdrop click
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal();
+        }
+      });
+
+      // ESC key to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
