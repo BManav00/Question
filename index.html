@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Ek Question Hai 💖</title>
+  
+  <!-- Cute Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-start: #FFD6E7;
+      --bg-end: #FFC1D6;
+      --primary-pink: #FF6B9D;
+      --primary-pink-dark: #FF4D87;
+      --accent-pink: #FFA4C4;
+      --text-color: #5C3246;
+      --white: #FFFFFF;
+      --shadow-soft: 0 10px 25px rgba(255, 107, 157, 0.25);
+      --shadow-hover: 0 14px 30px rgba(255, 107, 157, 0.38);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Fredoka', 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, cursive, sans-serif;
+      background: linear-gradient(135deg, var(--bg-start) 0%, #FFE2ED 50%, var(--bg-end) 100%);
+      color: var(--text-color);
+    }
+
+    /* Fullscreen Wrapper */
+    .app-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: filter 0.4s ease, transform 0.4s ease;
+      z-index: 10;
+      padding: 20px;
+    }
+
+    /* Floating Particles Background */
+    .background-decorations {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .heart, .sparkle {
+      position: absolute;
+      opacity: 0;
+      animation: floatUp 7s infinite linear;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(110vh) scale(0.6) rotate(0deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.75;
+      }
+      80% {
+        opacity: 0.75;
+      }
+      100% {
+        transform: translateY(-15vh) scale(1.1) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        transform: scale(0.3) rotate(0deg);
+        opacity: 0.2;
+      }
+      50% {
+        transform: scale(1.2) rotate(45deg);
+        opacity: 0.9;
+      }
+    }
+
+    .twinkle-star {
+      position: absolute;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    /* Card / Content Container */
+    .content-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 22px;
+      z-index: 20;
+    }
+
+    /* Cute Heading */
+    .title {
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
+      font-weight: 700;
+      color: #6d2847;
+      text-shadow: 0 4px 12px rgba(255, 120, 166, 0.35), 0 2px 0 #ffffff88;
+      letter-spacing: 0.5px;
+      animation: gentlePulse 3s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .title .heart-icon {
+      display: inline-block;
+      animation: heartbeat 1.4s ease-in-out infinite;
+      filter: drop-shadow(0 2px 6px rgba(255, 77, 135, 0.4));
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.025); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.25); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.2); }
+      70% { transform: scale(1); }
+    }
+
+    /* Panda Illustration Container */
+    .panda-wrapper {
+      position: relative;
+      width: clamp(190px, 32vw, 250px);
+      height: clamp(190px, 32vw, 250px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pandaFloat 4s ease-in-out infinite;
+      filter: drop-shadow(0 15px 25px rgba(180, 80, 120, 0.2));
+    }
+
+    .panda-svg {
+      width: 100%;
+      height: 100%;
+      animation: pandaBreathe 4s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    @keyframes pandaFloat {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-8px) rotate(-1.5deg);
+      }
+      75% {
+        transform: translateY(5px) rotate(1.5deg);
+      }
+    }
+
+    @keyframes pandaBreathe {
+      0%, 100% {
+        transform: scale(1, 1);
+      }
+      50% {
+        transform: scale(1.035, 0.975);
+      }
+    }
+
+    /* Yes Button */
+    .btn-yes {
+      position: relative;
+      background: var(--white);
+      color: var(--primary-pink);
+      border: 3px solid #FFF0F5;
+      outline: none;
+      padding: 14px 44px;
+      font-size: clamp(1.25rem, 3.2vw, 1.55rem);
+      font-family: inherit;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft), inset 0 -3px 0 #ffe0eb;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-yes:hover {
+      transform: translateY(-5px) scale(1.06);
+      box-shadow: var(--shadow-hover), inset 0 -3px 0 #ffe0eb;
+      background: #FFFFFF;
+      color: var(--primary-pink-dark);
+      border-color: #ffffff;
+    }
+
+    .btn-yes:active {
+      transform: translateY(2px) scale(0.96);
+      box-shadow: 0 4px 10px rgba(255, 107, 157, 0.25);
+    }
+
+    /* Modal Backdrop / Overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(80, 20, 50, 0.28);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Modal Card */
+    .modal-card {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      border-radius: 36px;
+      padding: clamp(28px, 6vw, 42px) clamp(24px, 5vw, 38px);
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(180, 60, 110, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.6);
+      transform: scale(0.7) translateY(20px);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    .modal-overlay.closing .modal-card {
+      transform: scale(0.85) translateY(15px);
+      opacity: 0;
+    }
+
+    /* Modal Title */
+    .modal-title {
+      font-size: clamp(1.6rem, 4.5vw, 2.1rem);
+      font-weight: 700;
+      color: #632342;
+      line-height: 1.35;
+      text-shadow: 0 2px 4px rgba(255, 107, 157, 0.15);
+    }
+
+    /* Tiny Smiling Panda in Modal */
+    .mini-panda-box {
+      width: 110px;
+      height: 110px;
+      margin: 4px auto;
+      filter: drop-shadow(0 8px 16px rgba(255, 105, 180, 0.2));
+      animation: miniPandaWiggle 3s ease-in-out infinite;
+    }
+
+    @keyframes miniPandaWiggle {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-5deg) scale(1.05); }
+      75% { transform: rotate(5deg) scale(1.05); }
+    }
+
+    /* Modal Close Button */
+    .btn-close {
+      background: linear-gradient(135deg, #FF7BA5, #FF528A);
+      color: var(--white);
+      border: none;
+      outline: none;
+      padding: 12px 36px;
+      font-size: 1.2rem;
+      font-family: inherit;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 82, 138, 0.38), inset 0 2px 0 rgba(255, 255, 255, 0.35);
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      letter-spacing: 0.3px;
+    }
+
+    .btn-close:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 12px 24px rgba(255, 82, 138, 0.48);
+      background: linear-gradient(135deg, #FF6998, #FF407A);
+    }
+
+    .btn-close:active {
+      transform: translateY(1px) scale(0.96);
+    }
+
+    /* Confetti Particle on Click */
+    .burst-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 150;
+      animation: heartBurst 1.2s forwards cubic-bezier(0.12, 0.84, 0.4, 1);
+    }
+
+    @keyframes heartBurst {
+      0% {
+        transform: translate(0, 0) scale(0.4) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--tx), var(--ty)) scale(1.4) rotate(var(--rot));
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Background Hearts & Sparkles -->
+  <div class="background-decorations" id="bgDecorations"></div>
+
+  <!-- Main View -->
+  <main class="app-container" id="appContainer">
+    <div class="content-box">
+      <!-- Heading -->
+      <h1 class="title">
+        Ek Question Hai <span class="heart-icon">💖</span>
+      </h1>
+
+      <!-- Cute Panda SVG -->
+      <div class="panda-wrapper" aria-label="Cute Kawaii Panda">
+        <svg class="panda-svg" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Soft Background Glow -->
+          <circle cx="120" cy="125" r="95" fill="rgba(255, 255, 255, 0.45)" />
+
+          <!-- Panda Ears -->
+          <!-- Left Ear -->
+          <circle cx="58" cy="62" r="32" fill="#2E2B38" />
+          <circle cx="58" cy="62" r="18" fill="#FF9EBE" opacity="0.8" />
+          <!-- Right Ear -->
+          <circle cx="182" cy="62" r="32" fill="#2E2B38" />
+          <circle cx="182" cy="62" r="18" fill="#FF9EBE" opacity="0.8" />
+
+          <!-- Panda Body (Peeking behind head) -->
+          <ellipse cx="120" cy="190" rx="66" ry="46" fill="#FFFFFF" stroke="#2E2B38" stroke-width="6" />
+          
+          <!-- Cute Paws holding small heart -->
+          <ellipse cx="72" cy="195" rx="19" ry="17" fill="#2E2B38" />
+          <circle cx="72" cy="195" r="7" fill="#FFB7CF" />
+          <ellipse cx="168" cy="195" rx="19" ry="17" fill="#2E2B38" />
+          <circle cx="168" cy="195" r="7" fill="#FFB7CF" />
+
+          <!-- Panda Head -->
+          <ellipse cx="120" cy="122" rx="82" ry="74" fill="#FFFFFF" stroke="#2E2B38" stroke-width="6.5" />
+
+          <!-- Eye Patches (Rotated kawaii oval patches) -->
+          <ellipse cx="80" cy="115" rx="23" ry="29" fill="#2E2B38" transform="rotate(-18 80 115)" />
+          <ellipse cx="160" cy="115" rx="23" ry="29" fill="#2E2B38" transform="rotate(18 160 115)" />
+
+          <!-- Sparkly Eyes -->
+          <!-- Left Eye -->
+          <ellipse cx="82" cy="114" rx="11" ry="13" fill="#FFFFFF" />
+          <circle cx="85" cy="110" r="5.5" fill="#2E2B38" />
+          <circle cx="86.5" cy="108.5" r="2.2" fill="#FFFFFF" />
+          <circle cx="80" cy="118" r="1.6" fill="#FFFFFF" />
+
+          <!-- Right Eye -->
+          <ellipse cx="158" cy="114" rx="11" ry="13" fill="#FFFFFF" />
+          <circle cx="155" cy="110" r="5.5" fill="#2E2B38" />
+          <circle cx="153.5" cy="108.5" r="2.2" fill="#FFFFFF" />
+          <circle cx="160" cy="118" r="1.6" fill="#FFFFFF" />
+
+          <!-- Rosy Blushing Cheeks -->
+          <ellipse cx="56" cy="142" rx="16" ry="10" fill="#FFA5C3" opacity="0.85" />
+          <ellipse cx="184" cy="142" rx="16" ry="10" fill="#FFA5C3" opacity="0.85" />
+          <!-- Tiny Cheek Sparkles -->
+          <circle cx="52" cy="140" r="1.8" fill="#FFFFFF" />
+          <circle cx="188" cy="140" r="1.8" fill="#FFFFFF" />
+
+          <!-- Cute Nose -->
+          <ellipse cx="120" cy="128" rx="8.5" ry="6" fill="#2E2B38" />
+          <ellipse cx="119" cy="126.5" rx="3" ry="1.5" fill="#FFFFFF" opacity="0.7" />
+
+          <!-- Happy Cat/W-shaped Mouth -->
+          <path d="M 112 135 C 112 142 119 142 120 136 C 121 142 128 142 128 135" stroke="#2E2B38" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+          
+          <!-- Open sweet smile tongue -->
+          <path d="M 116 138 C 116 146 124 146 124 138 Z" fill="#FF7B9D" />
+
+          <!-- Little Heart Between Paws -->
+          <g transform="translate(120, 186) scale(0.95)">
+            <path d="M 0 -7 C -6 -15 -17 -7 -17 3 C -17 12 0 20 0 20 C 0 20 17 12 17 3 C 17 -7 6 -15 0 -7 Z" fill="#FF528A" />
+            <circle cx="-5" cy="0" r="2" fill="#FFFFFF" opacity="0.6" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- Yes Button -->
+      <button class="btn-yes" id="yesBtn" aria-haspopup="dialog">
+        Yes 💗
+      </button>
+    </div>
+  </main>
+
+  <!-- Cute Modal Popup -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalQuestion">
+    <div class="modal-card">
+      <h2 class="modal-title" id="modalQuestion">
+        Kaisi hai Rasmaliii?? 🥹💕
+      </h2>
+
+      <!-- Tiny Smiling Panda Face -->
+      <div class="mini-panda-box">
+        <svg viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+          <!-- Ears -->
+          <circle cx="36" cy="36" r="22" fill="#2E2B38" />
+          <circle cx="36" cy="36" r="12" fill="#FF9EBE" opacity="0.8" />
+          <circle cx="124" cy="36" r="22" fill="#2E2B38" />
+          <circle cx="124" cy="36" r="12" fill="#FF9EBE" opacity="0.8" />
+
+          <!-- Face Base -->
+          <ellipse cx="80" cy="80" rx="58" ry="50" fill="#FFFFFF" stroke="#2E2B38" stroke-width="5" />
+
+          <!-- Eye Patches -->
+          <ellipse cx="52" cy="74" rx="16" ry="20" fill="#2E2B38" transform="rotate(-15 52 74)" />
+          <ellipse cx="108" cy="74" rx="16" ry="20" fill="#2E2B38" transform="rotate(15 108 74)" />
+
+          <!-- Happy Curved Closed Eyes (Smiling ^_^) -->
+          <path d="M 45 74 Q 52 66 59 74" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" fill="none" />
+          <path d="M 101 74 Q 108 66 115 74" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" fill="none" />
+
+          <!-- Rosy Cheeks -->
+          <ellipse cx="36" cy="94" rx="12" ry="7.5" fill="#FFA5C3" opacity="0.9" />
+          <ellipse cx="124" cy="94" rx="12" ry="7.5" fill="#FFA5C3" opacity="0.9" />
+
+          <!-- Nose -->
+          <ellipse cx="80" cy="84" rx="6" ry="4.5" fill="#2E2B38" />
+
+          <!-- Cute Open Smile -->
+          <path d="M 74 91 Q 80 99 86 91" stroke="#2E2B38" stroke-width="3.5" stroke-linecap="round" fill="none" />
+          <path d="M 76 92 C 76 98 84 98 84 92 Z" fill="#FF6B9D" />
+        </svg>
+      </div>
+
+      <!-- Close Button -->
+      <button class="btn-close" id="closeBtn">
+        Hehe 💖
+      </button>
+    </div>
+  </div>
+
+  <!-- Vanilla JavaScript Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const yesBtn = document.getElementById('yesBtn');
+      const closeBtn = document.getElementById('closeBtn');
+      const modalOverlay = document.getElementById('modalOverlay');
+      const bgDecorations = document.getElementById('bgDecorations');
+
+      // Decorative Floating Hearts & Stars
+      const heartSymbols = ['💖', '💕', '🌸', '✨', '💗', '🍓', '🧁'];
+      const particleCount = 24;
+
+      for (let i = 0; i < particleCount; i++) {
+        const item = document.createElement('div');
+        const isHeart = Math.random() > 0.35;
+        
+        if (isHeart) {
+          item.className = 'heart';
+          item.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+          item.style.fontSize = `${Math.random() * 18 + 14}px`;
+          item.style.left = `${Math.random() * 96}%`;
+          item.style.animationDuration = `${Math.random() * 5 + 6}s`;
+          item.style.animationDelay = `${Math.random() * 7}s`;
+        } else {
+          item.className = 'twinkle-star';
+          item.textContent = '✦';
+          item.style.color = '#FFFFFF';
+          item.style.fontSize = `${Math.random() * 14 + 10}px`;
+          item.style.left = `${Math.random() * 95}%`;
+          item.style.top = `${Math.random() * 90}%`;
+          item.style.animationDuration = `${Math.random() * 2 + 2}s`;
+          item.style.animationDelay = `${Math.random() * 3}s`;
+        }
+        
+        bgDecorations.appendChild(item);
+      }
+
+      // Heart Burst effect on Yes click
+      function createHeartBurst(x, y) {
+        const burstCount = 16;
+        const emojis = ['💖', '💕', '💗', '✨', '🌸'];
+
+        for (let i = 0; i < burstCount; i++) {
+          const heart = document.createElement('div');
+          heart.className = 'burst-heart';
+          heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+          const angle = (Math.PI * 2 * i) / burstCount + (Math.random() - 0.5) * 0.5;
+          const distance = Math.random() * 110 + 70;
+          const tx = `${Math.cos(angle) * distance}px`;
+          const ty = `${Math.sin(angle) * distance - 20}px`;
+          const rot = `${(Math.random() - 0.5) * 80}deg`;
+
+          heart.style.setProperty('--tx', tx);
+          heart.style.setProperty('--ty', ty);
+          heart.style.setProperty('--rot', rot);
+          heart.style.left = `${x}px`;
+          heart.style.top = `${y}px`;
+          heart.style.fontSize = `${Math.random() * 16 + 18}px`;
+
+          document.body.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 1200);
+        }
+      }
+
+      // Open Modal
+      yesBtn.addEventListener('click', (e) => {
+        const rect = yesBtn.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        createHeartBurst(centerX, centerY);
+
+        modalOverlay.classList.remove('closing');
+        modalOverlay.classList.add('active');
+      });
+
+      // Close Modal Function
+      function closeModal() {
+        modalOverlay.classList.add('closing');
+        setTimeout(() => {
+          modalOverlay.classList.remove('active');
+          modalOverlay.classList.remove('closing');
+        }, 350);
+      }
+
+      closeBtn.addEventListener('click', closeModal);
+
+      // Close on clicking backdrop outside card
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal();
+        }
+      });
+
+      // ESC key to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
