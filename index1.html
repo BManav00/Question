@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Listen Babu 💙🥺</title>
-  
+
   <!-- Cute Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap"
+    rel="stylesheet">
 
   <style>
     :root {
@@ -35,7 +38,8 @@
       -webkit-user-select: none;
     }
 
-    html, body {
+    html,
+    body {
       width: 100%;
       height: 100%;
       overflow: hidden;
@@ -91,12 +95,15 @@
         transform: translateY(105vh) scale(0.6) rotate(-10deg);
         opacity: 0;
       }
+
       15% {
         opacity: 0.8;
       }
+
       80% {
         opacity: 0.8;
       }
+
       100% {
         transform: translateY(-12vh) scale(1.15) rotate(20deg);
         opacity: 0;
@@ -108,17 +115,21 @@
         transform: translateY(105vh) translateX(0) scale(0.6);
         opacity: 0;
       }
+
       20% {
         opacity: 0.75;
         transform: translateY(80vh) translateX(15px) scale(0.85);
       }
+
       50% {
         transform: translateY(45vh) translateX(-15px) scale(1);
       }
+
       80% {
         opacity: 0.75;
         transform: translateY(15vh) translateX(10px) scale(1.05);
       }
+
       100% {
         transform: translateY(-10vh) translateX(-5px) scale(1.1);
         opacity: 0;
@@ -126,10 +137,13 @@
     }
 
     @keyframes twinkleSparkle {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(0.3) rotate(0deg);
         opacity: 0.2;
       }
+
       50% {
         transform: scale(1.25) rotate(45deg);
         opacity: 0.95;
@@ -174,13 +188,27 @@
     }
 
     @keyframes gentlePulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.025); }
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.025);
+      }
     }
 
     @keyframes babyPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.22) rotate(4deg); }
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.22) rotate(4deg);
+      }
     }
 
     /* Stitch Character Wrapper */
@@ -214,37 +242,78 @@
     }
 
     @keyframes earWiggleLeft {
-      0%, 75%, 100% { transform: rotate(0deg); }
-      80% { transform: rotate(-7deg); }
-      85% { transform: rotate(4deg); }
-      90% { transform: rotate(-4deg); }
-      95% { transform: rotate(0deg); }
+
+      0%,
+      75%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      80% {
+        transform: rotate(-7deg);
+      }
+
+      85% {
+        transform: rotate(4deg);
+      }
+
+      90% {
+        transform: rotate(-4deg);
+      }
+
+      95% {
+        transform: rotate(0deg);
+      }
     }
 
     @keyframes earWiggleRight {
-      0%, 75%, 100% { transform: rotate(0deg); }
-      80% { transform: rotate(7deg); }
-      85% { transform: rotate(-4deg); }
-      90% { transform: rotate(4deg); }
-      95% { transform: rotate(0deg); }
+
+      0%,
+      75%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      80% {
+        transform: rotate(7deg);
+      }
+
+      85% {
+        transform: rotate(-4deg);
+      }
+
+      90% {
+        transform: rotate(4deg);
+      }
+
+      95% {
+        transform: rotate(0deg);
+      }
     }
 
     @keyframes stitchFloat {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0px) rotate(0deg);
       }
+
       25% {
         transform: translateY(-9px) rotate(-1.5deg);
       }
+
       75% {
         transform: translateY(6px) rotate(1.5deg);
       }
     }
 
     @keyframes stitchBreathe {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1, 1);
       }
+
       50% {
         transform: scale(1.03, 0.975);
       }
@@ -374,19 +443,24 @@
         transform: scale(1);
         filter: drop-shadow(0 0 12px rgba(33, 150, 243, 0.6));
       }
+
       15% {
         transform: scale(1.26);
         filter: drop-shadow(0 0 24px rgba(33, 150, 243, 0.95)) drop-shadow(0 0 40px rgba(100, 181, 246, 0.7));
       }
+
       30% {
         transform: scale(1.05);
         filter: drop-shadow(0 0 14px rgba(33, 150, 243, 0.7));
       }
+
       45% {
         transform: scale(1.2);
         filter: drop-shadow(0 0 20px rgba(33, 150, 243, 0.85));
       }
-      65%, 100% {
+
+      65%,
+      100% {
         transform: scale(1);
         filter: drop-shadow(0 0 12px rgba(33, 150, 243, 0.6));
       }
@@ -400,14 +474,45 @@
       animation: orbitFloat 3s infinite ease-in-out;
     }
 
-    .orbit-heart:nth-child(1) { top: 0; left: 12px; animation-delay: 0s; }
-    .orbit-heart:nth-child(2) { top: 5px; right: 10px; animation-delay: 0.8s; font-size: 18px; }
-    .orbit-heart:nth-child(3) { bottom: 6px; left: 16px; animation-delay: 1.5s; font-size: 12px; }
-    .orbit-heart:nth-child(4) { bottom: 10px; right: 14px; animation-delay: 2.2s; font-size: 15px; }
+    .orbit-heart:nth-child(1) {
+      top: 0;
+      left: 12px;
+      animation-delay: 0s;
+    }
+
+    .orbit-heart:nth-child(2) {
+      top: 5px;
+      right: 10px;
+      animation-delay: 0.8s;
+      font-size: 18px;
+    }
+
+    .orbit-heart:nth-child(3) {
+      bottom: 6px;
+      left: 16px;
+      animation-delay: 1.5s;
+      font-size: 12px;
+    }
+
+    .orbit-heart:nth-child(4) {
+      bottom: 10px;
+      right: 14px;
+      animation-delay: 2.2s;
+      font-size: 15px;
+    }
 
     @keyframes orbitFloat {
-      0%, 100% { transform: translateY(0px) scale(0.9); opacity: 0.5; }
-      50% { transform: translateY(-8px) scale(1.2); opacity: 0.95; }
+
+      0%,
+      100% {
+        transform: translateY(0px) scale(0.9);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: translateY(-8px) scale(1.2);
+        opacity: 0.95;
+      }
     }
 
     /* Mini Smiling Stitch Face */
@@ -420,9 +525,19 @@
     }
 
     @keyframes miniStitchWiggle {
-      0%, 100% { transform: rotate(0deg) scale(1); }
-      25% { transform: rotate(-4deg) scale(1.04); }
-      75% { transform: rotate(4deg) scale(1.04); }
+
+      0%,
+      100% {
+        transform: rotate(0deg) scale(1);
+      }
+
+      25% {
+        transform: rotate(-4deg) scale(1.04);
+      }
+
+      75% {
+        transform: rotate(4deg) scale(1.04);
+      }
     }
 
     /* Close Button (Okayyy 💙) */
@@ -465,6 +580,7 @@
         transform: translate(0, 0) scale(0.4) rotate(0deg);
         opacity: 1;
       }
+
       100% {
         transform: translate(var(--tx), var(--ty)) scale(1.35) rotate(var(--rot));
         opacity: 0;
@@ -472,6 +588,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Floating Ambient Bubbles, Hearts & Sparkles -->
@@ -511,19 +628,23 @@
           <!-- Stitch Left Ear (Wiggle Animation) -->
           <g class="ear-left">
             <!-- Outer Ear -->
-            <path d="M 90 120 C 50 100 15 45 18 18 C 22 8 36 12 55 35 C 75 60 98 95 105 125 Z" fill="#2E79D8" stroke="#1D4E96" stroke-width="4" stroke-linejoin="round" />
+            <path d="M 90 120 C 50 100 15 45 18 18 C 22 8 36 12 55 35 C 75 60 98 95 105 125 Z" fill="#2E79D8"
+              stroke="#1D4E96" stroke-width="4" stroke-linejoin="round" />
             <!-- Ear Notch (Classic Stitch notch) -->
             <path d="M 32 30 C 38 34 39 42 33 46 C 26 51 22 42 27 34" fill="#2E79D8" />
             <!-- Inner Ear Pink -->
-            <path d="M 85 115 C 55 98 28 55 28 32 C 34 26 44 32 60 52 C 76 72 92 98 96 120 Z" fill="url(#earInnerGradLeft)" opacity="0.9" />
+            <path d="M 85 115 C 55 98 28 55 28 32 C 34 26 44 32 60 52 C 76 72 92 98 96 120 Z"
+              fill="url(#earInnerGradLeft)" opacity="0.9" />
           </g>
 
           <!-- Stitch Right Ear (Wiggle Animation) -->
           <g class="ear-right">
             <!-- Outer Ear -->
-            <path d="M 190 120 C 230 100 265 45 262 18 C 258 8 244 12 225 35 C 205 60 182 95 175 125 Z" fill="#2E79D8" stroke="#1D4E96" stroke-width="4" stroke-linejoin="round" />
+            <path d="M 190 120 C 230 100 265 45 262 18 C 258 8 244 12 225 35 C 205 60 182 95 175 125 Z" fill="#2E79D8"
+              stroke="#1D4E96" stroke-width="4" stroke-linejoin="round" />
             <!-- Inner Ear Pink -->
-            <path d="M 195 115 C 225 98 252 55 252 32 C 246 26 236 32 220 52 C 204 72 188 98 184 120 Z" fill="url(#earInnerGradRight)" opacity="0.9" />
+            <path d="M 195 115 C 225 98 252 55 252 32 C 246 26 236 32 220 52 C 204 72 188 98 184 120 Z"
+              fill="url(#earInnerGradRight)" opacity="0.9" />
           </g>
 
           <!-- Stitch Body (Chubby Cute sitting pose) -->
@@ -541,12 +662,16 @@
           <ellipse cx="140" cy="132" rx="76" ry="65" fill="#2E79D8" stroke="#1D4E96" stroke-width="5" />
 
           <!-- Tufts of Hair on Head -->
-          <path d="M 135 68 Q 138 52 142 54 Q 140 64 144 68" stroke="#1D4E96" stroke-width="4.5" stroke-linecap="round" fill="#2E79D8" />
-          <path d="M 142 68 Q 148 55 152 58 Q 147 65 149 69" stroke="#1D4E96" stroke-width="4.5" stroke-linecap="round" fill="#2E79D8" />
+          <path d="M 135 68 Q 138 52 142 54 Q 140 64 144 68" stroke="#1D4E96" stroke-width="4.5" stroke-linecap="round"
+            fill="#2E79D8" />
+          <path d="M 142 68 Q 148 55 152 58 Q 147 65 149 69" stroke="#1D4E96" stroke-width="4.5" stroke-linecap="round"
+            fill="#2E79D8" />
 
           <!-- Eye Surrounds (Lighter Blue eye patches) -->
-          <path d="M 85 105 C 72 118 72 146 95 148 C 112 149 116 128 112 112 C 108 98 94 96 85 105 Z" fill="#75C6FF" opacity="0.9" />
-          <path d="M 195 105 C 208 118 208 146 185 148 C 168 149 164 128 168 112 C 172 98 186 96 195 105 Z" fill="#75C6FF" opacity="0.9" />
+          <path d="M 85 105 C 72 118 72 146 95 148 C 112 149 116 128 112 112 C 108 98 94 96 85 105 Z" fill="#75C6FF"
+            opacity="0.9" />
+          <path d="M 195 105 C 208 118 208 146 185 148 C 168 149 164 128 168 112 C 172 98 186 96 195 105 Z"
+            fill="#75C6FF" opacity="0.9" />
 
           <!-- Big Shiny Eyes -->
           <!-- Left Eye -->
@@ -569,12 +694,14 @@
           <circle cx="212" cy="146" r="1.8" fill="#FFFFFF" />
 
           <!-- Big Cute Stitch Blue-Black Nose -->
-          <path d="M 125 130 C 132 126 148 126 155 130 C 160 135 152 147 140 147 C 128 147 120 135 125 130 Z" fill="#162B55" />
+          <path d="M 125 130 C 132 126 148 126 155 130 C 160 135 152 147 140 147 C 128 147 120 135 125 130 Z"
+            fill="#162B55" />
           <!-- Nose Bridge Highlight -->
           <ellipse cx="140" cy="131" rx="7" ry="2.5" fill="#4B77BE" opacity="0.8" />
 
           <!-- Happy Stitch Smile -->
-          <path d="M 112 152 Q 140 174 168 152" stroke="#162B55" stroke-width="4.5" stroke-linecap="round" fill="none" />
+          <path d="M 112 152 Q 140 174 168 152" stroke="#162B55" stroke-width="4.5" stroke-linecap="round"
+            fill="none" />
           <!-- Open Mouth / Tongue -->
           <path d="M 124 159 C 124 173 156 173 156 159 Z" fill="#FF6B93" />
           <!-- Tiny Cute Fangs -->
@@ -584,16 +711,19 @@
           <!-- Front Paws holding a glowing heart -->
           <!-- Little glowing heart in Stitch's hands -->
           <g transform="translate(140, 192) scale(0.9)">
-            <path d="M 0 -8 C -7 -17 -19 -8 -19 3 C -19 13 0 22 0 22 C 0 22 19 13 19 3 C 19 -8 7 -17 0 -8 Z" fill="#38B6FF" filter="drop-shadow(0 0 8px rgba(56, 182, 255, 0.8))" />
+            <path d="M 0 -8 C -7 -17 -19 -8 -19 3 C -19 13 0 22 0 22 C 0 22 19 13 19 3 C 19 -8 7 -17 0 -8 Z"
+              fill="#38B6FF" filter="drop-shadow(0 0 8px rgba(56, 182, 255, 0.8))" />
             <circle cx="-5" cy="-1" r="2.5" fill="#FFFFFF" opacity="0.75" />
           </g>
 
           <!-- Left Paw -->
-          <ellipse cx="106" cy="192" rx="16" ry="13" fill="#2E79D8" stroke="#1D4E96" stroke-width="3.5" transform="rotate(18 106 192)" />
+          <ellipse cx="106" cy="192" rx="16" ry="13" fill="#2E79D8" stroke="#1D4E96" stroke-width="3.5"
+            transform="rotate(18 106 192)" />
           <circle cx="106" cy="190" r="4" fill="#75C6FF" />
 
           <!-- Right Paw -->
-          <ellipse cx="174" cy="192" rx="16" ry="13" fill="#2E79D8" stroke="#1D4E96" stroke-width="3.5" transform="rotate(-18 174 192)" />
+          <ellipse cx="174" cy="192" rx="16" ry="13" fill="#2E79D8" stroke="#1D4E96" stroke-width="3.5"
+            transform="rotate(-18 174 192)" />
           <circle cx="174" cy="190" r="4" fill="#75C6FF" />
         </svg>
       </div>
@@ -609,7 +739,7 @@
   <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalQuestion">
     <div class="modal-card">
       <h2 class="modal-title" id="modalQuestion">
-        Don't Overthink Riyooo 💙🥹
+        Don't Overthink Riyuuu 💙🥹
       </h2>
 
       <!-- Beating Glowing Blue Heart with Orbiting Hearts -->
@@ -628,7 +758,8 @@
               <stop offset="100%" stop-color="#0369A1" />
             </radialGradient>
           </defs>
-          <path d="M 50 20 C 30 -5 -5 15 5 45 C 13 65 50 90 50 90 C 50 90 87 65 95 45 C 105 15 70 -5 50 20 Z" fill="url(#heartGrad)" stroke="#E0F2FE" stroke-width="2.5" />
+          <path d="M 50 20 C 30 -5 -5 15 5 45 C 13 65 50 90 50 90 C 50 90 87 65 95 45 C 105 15 70 -5 50 20 Z"
+            fill="url(#heartGrad)" stroke="#E0F2FE" stroke-width="2.5" />
           <!-- Inner soft highlight -->
           <ellipse cx="34" cy="32" rx="10" ry="6" fill="#FFFFFF" opacity="0.6" transform="rotate(-30 34 32)" />
         </svg>
@@ -638,10 +769,12 @@
       <div class="mini-stitch-box">
         <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
           <!-- Mini Ears -->
-          <path d="M 45 60 C 25 45 5 15 8 5 C 10 0 20 2 32 15 C 44 28 50 48 55 62 Z" fill="#2E79D8" stroke="#1D4E96" stroke-width="3" />
+          <path d="M 45 60 C 25 45 5 15 8 5 C 10 0 20 2 32 15 C 44 28 50 48 55 62 Z" fill="#2E79D8" stroke="#1D4E96"
+            stroke-width="3" />
           <path d="M 42 56 C 28 44 14 20 14 10 C 18 8 24 10 32 20 Z" fill="#FF85A2" />
 
-          <path d="M 115 60 C 135 45 155 15 152 5 C 150 0 140 2 128 15 C 116 28 110 48 105 62 Z" fill="#2E79D8" stroke="#1D4E96" stroke-width="3" />
+          <path d="M 115 60 C 135 45 155 15 152 5 C 150 0 140 2 128 15 C 116 28 110 48 105 62 Z" fill="#2E79D8"
+            stroke="#1D4E96" stroke-width="3" />
           <path d="M 118 56 C 132 44 146 20 146 10 C 142 8 136 10 128 20 Z" fill="#FF85A2" />
 
           <!-- Face -->
@@ -819,10 +952,10 @@
         function triggerLubDub() {
           if (!audioCtx || audioCtx.state !== 'running') return;
           const now = audioCtx.currentTime;
-          
+
           // Lub (1st beat) - warm and deep
           playThud(now, 60, 38, 0.14, 0.45);
-          
+
           // Dub (2nd beat, ~0.16s later) - softer
           playThud(now + 0.16, 52, 32, 0.12, 0.32);
         }
@@ -893,4 +1026,5 @@
     });
   </script>
 </body>
+
 </html>
