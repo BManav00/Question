@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>A Teddy Hug for Jannnuu 🧸🤍</title>
+  
+  <!-- Cute Handwritten & Rounded Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-cream: #FFF8F0;
+      --bg-beige: #F4E4D3;
+      --bg-honey: #E7C49A;
+      --teddy-brown: #8B5E3C;
+      --teddy-dark-brown: #5A3825;
+      --teddy-light: #C99B72;
+      --teddy-snout: #F3DEC7;
+      --blush-pink: #FFD9E6;
+      --accent-pink: #FFAFC5;
+      --warm-heart: #FF7B9D;
+      --text-brown: #50311D;
+      --fairy-gold: rgba(255, 220, 140, 0.7);
+      --shadow-cozy: 0 12px 32px rgba(139, 94, 60, 0.16);
+      --shadow-hover: 0 18px 40px rgba(139, 94, 60, 0.28);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Fredoka', 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, cursive, sans-serif;
+      background: radial-gradient(circle at 50% 40%, #FFFDF9 0%, var(--bg-cream) 45%, #F7E8D8 80%, var(--bg-beige) 100%);
+      color: var(--text-brown);
+    }
+
+    /* Fullscreen Viewport */
+    .app-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: filter 0.5s ease, transform 0.5s ease;
+      z-index: 10;
+      padding: 16px;
+    }
+
+    /* Ambient Fairy Lights & Particles */
+    .background-decorations {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Fairy Light Dots */
+    .fairy-light {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFF9D2 0%, #FFD67A 60%, rgba(255, 214, 122, 0) 100%);
+      box-shadow: 0 0 15px 4px rgba(255, 220, 130, 0.65), 0 0 30px 8px rgba(255, 200, 100, 0.35);
+      animation: fairyGlow 4s infinite ease-in-out alternate;
+    }
+
+    @keyframes fairyGlow {
+      0% { opacity: 0.35; transform: scale(0.85); }
+      100% { opacity: 0.95; transform: scale(1.2); }
+    }
+
+    /* Slow Drifting Elements */
+    .cozy-particle {
+      position: absolute;
+      opacity: 0;
+      animation: slowDrift 11s infinite linear;
+    }
+
+    @keyframes slowDrift {
+      0% {
+        transform: translateY(105vh) translateX(0) scale(0.6) rotate(-10deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      80% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-12vh) translateX(30px) scale(1.1) rotate(15deg);
+        opacity: 0;
+      }
+    }
+
+    /* Golden Sparkles */
+    .gold-sparkle {
+      position: absolute;
+      color: #E5B262;
+      text-shadow: 0 0 10px rgba(255, 215, 130, 0.9);
+      animation: sparkleTwinkle 3.2s infinite ease-in-out;
+    }
+
+    @keyframes sparkleTwinkle {
+      0%, 100% { transform: scale(0.2) rotate(0deg); opacity: 0.15; }
+      50% { transform: scale(1.25) rotate(45deg); opacity: 0.95; }
+    }
+
+    /* Secret Floating Love Notes */
+    .secret-note-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 25;
+      pointer-events: none;
+    }
+
+    .secret-note {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 2px solid #F5E0D0;
+      padding: 10px 22px;
+      border-radius: 30px;
+      box-shadow: 0 8px 24px rgba(139, 94, 60, 0.15);
+      font-family: 'Caveat', cursive;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #693C23;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(15px) scale(0.95);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .secret-note.visible {
+      opacity: 0.96;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Main Content */
+    .content-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 16px;
+      z-index: 20;
+    }
+
+    /* Welcome Header */
+    .header-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .title {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(2.6rem, 7vw, 4rem);
+      font-weight: 700;
+      color: #542D15;
+      text-shadow: 0 4px 12px rgba(139, 94, 60, 0.18), 0 2px 0 rgba(255, 255, 255, 0.9);
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-family: 'Fredoka', cursive;
+      font-size: clamp(1rem, 2.8vw, 1.25rem);
+      color: #8C5F40;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+
+    /* Centerpiece Teddy Bear */
+    .teddy-wrapper {
+      position: relative;
+      width: clamp(210px, 34vw, 270px);
+      height: clamp(210px, 34vw, 270px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      filter: drop-shadow(0 16px 30px rgba(120, 75, 45, 0.22));
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .teddy-wrapper:active {
+      transform: scale(0.97);
+    }
+
+    .teddy-svg {
+      width: 100%;
+      height: 100%;
+      transform-origin: center bottom;
+      animation: teddySwayAndBreathe 6s ease-in-out infinite;
+    }
+
+    /* Teddy Bear Breathing & Swaying */
+    @keyframes teddySwayAndBreathe {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg) scale(1, 1);
+      }
+      25% {
+        transform: translateY(-8px) rotate(-1.8deg) scale(1.025, 0.98);
+      }
+      50% {
+        transform: translateY(-3px) rotate(0deg) scale(1.01, 0.99);
+      }
+      75% {
+        transform: translateY(-8px) rotate(1.8deg) scale(1.025, 0.98);
+      }
+    }
+
+    /* Occasional Blinking Eyes */
+    .teddy-eyes {
+      transform-origin: center 120px;
+      animation: teddyBlink 4.5s infinite ease-in-out;
+    }
+
+    @keyframes teddyBlink {
+      0%, 92%, 100% { transform: scaleY(1); }
+      95% { transform: scaleY(0.08); }
+    }
+
+    /* Teddy Hug Squeeze Animation on Click */
+    .teddy-wrapper.hug-tight .teddy-svg {
+      animation: teddySqueeze 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes teddySqueeze {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.12, 0.9) translateY(-6px); }
+      70% { transform: scale(0.95, 1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Main Button (Open Your Hug 🤎) */
+    .btn-hug {
+      position: relative;
+      background: #FFFFFF;
+      color: #6B3F21;
+      border: 3px solid #F6E2D0;
+      outline: none;
+      padding: 14px 44px;
+      font-size: clamp(1.25rem, 3.2vw, 1.55rem);
+      font-family: inherit;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: var(--shadow-cozy), inset 0 -3px 0 #EED6C2;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-hug:hover {
+      transform: translateY(-5px) scale(1.06);
+      box-shadow: var(--shadow-hover), 0 0 25px rgba(231, 196, 154, 0.5);
+      background: #FFFFFF;
+      color: #4A2610;
+      border-color: #FFF0E4;
+    }
+
+    .btn-hug:active {
+      transform: translateY(2px) scale(0.96);
+      box-shadow: 0 6px 14px rgba(139, 94, 60, 0.2);
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(80, 50, 30, 0.32);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.45s ease, visibility 0.45s ease;
+      z-index: 100;
+      padding: 16px;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Cozy Fluffy Card Modal */
+    .modal-card {
+      position: relative;
+      background: rgba(255, 252, 248, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 3px solid rgba(255, 255, 255, 0.95);
+      border-radius: 38px;
+      padding: clamp(26px, 5.5vw, 36px) clamp(22px, 5vw, 34px);
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      box-shadow: 0 25px 65px rgba(90, 50, 25, 0.24), 0 0 40px rgba(255, 225, 190, 0.6);
+      transform: scale(0.7) translateY(25px);
+      opacity: 0;
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.38s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      max-height: 92vh;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .modal-card::-webkit-scrollbar {
+      display: none;
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    .modal-overlay.closing .modal-card {
+      transform: scale(0.85) translateY(18px);
+      opacity: 0;
+    }
+
+    /* Message Header */
+    .modal-title {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(2rem, 5.8vw, 2.6rem);
+      font-weight: 700;
+      color: #542D15;
+      line-height: 1.2;
+    }
+
+    /* Message Body */
+    .modal-message {
+      font-size: clamp(1.05rem, 2.8vw, 1.18rem);
+      font-weight: 500;
+      line-height: 1.6;
+      color: #5C3822;
+      background: #FFF5EC;
+      border: 2px dashed #EED5C0;
+      border-radius: 24px;
+      padding: 18px 20px;
+      box-shadow: inset 0 2px 6px rgba(139, 94, 60, 0.05);
+    }
+
+    /* Mini Hugging Teddy + Glowing Heart Section */
+    .hug-centerpiece {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 2px 0;
+    }
+
+    .mini-teddy-box {
+      width: 72px;
+      height: 72px;
+      animation: miniTeddyWiggle 3s ease-in-out infinite;
+    }
+
+    @keyframes miniTeddyWiggle {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-5deg) scale(1.05); }
+      75% { transform: rotate(5deg) scale(1.05); }
+    }
+
+    .modal-heart-glow {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      animation: heartBeatGlow 1.2s infinite ease-in-out;
+      filter: drop-shadow(0 0 12px rgba(255, 123, 157, 0.8));
+    }
+
+    @keyframes heartBeatGlow {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(255, 123, 157, 0.6)); }
+      50% { transform: scale(1.22); filter: drop-shadow(0 0 18px rgba(255, 123, 157, 0.95)) drop-shadow(0 0 30px rgba(255, 200, 220, 0.8)); }
+    }
+
+    /* Floating Comfort Checklist */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .comfort-card {
+      background: #FFFFFF;
+      border: 2px solid #F3E0CF;
+      border-radius: 18px;
+      padding: 10px 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #6B3F21;
+      box-shadow: 0 4px 12px rgba(139, 94, 60, 0.08);
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: default;
+    }
+
+    .comfort-card:hover {
+      transform: translateY(-4px) rotate(3deg) scale(1.06);
+      border-color: #FFAFC5;
+      background: #FFF8FA;
+      box-shadow: 0 8px 18px rgba(255, 175, 197, 0.35);
+    }
+
+    .comfort-icon {
+      font-size: 1.4rem;
+    }
+
+    /* Close Button (Okayyy 🤍) */
+    .btn-close {
+      background: linear-gradient(135deg, #A77450, #805030);
+      color: #FFFFFF;
+      border: none;
+      outline: none;
+      padding: 12px 38px;
+      font-size: 1.22rem;
+      font-family: inherit;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(128, 80, 48, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+      letter-spacing: 0.3px;
+    }
+
+    .btn-close:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 12px 26px rgba(128, 80, 48, 0.45);
+      background: linear-gradient(135deg, #B5825D, #8E5B39);
+    }
+
+    .btn-close:active {
+      transform: translateY(1px) scale(0.96);
+    }
+
+    /* Burst Particles on Clicks */
+    .burst-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 150;
+      animation: particleBurst 1.2s forwards cubic-bezier(0.12, 0.84, 0.4, 1);
+    }
+
+    @keyframes particleBurst {
+      0% {
+        transform: translate(0, 0) scale(0.4) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--tx), var(--ty)) scale(1.35) rotate(var(--rot));
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Ambient Particles, Fairy Lights & Sparkles -->
+  <div class="background-decorations" id="bgDecorations"></div>
+
+  <!-- Secret Floating Love Note Container -->
+  <div class="secret-note-container">
+    <div class="secret-note" id="secretNote">You're stronger than you think 🤍</div>
+  </div>
+
+  <!-- Main View -->
+  <main class="app-container" id="appContainer">
+    <div class="content-box">
+      <!-- Cute Welcome Header -->
+      <div class="header-group">
+        <h1 class="title">
+          Jannnuu 🧸🤍
+        </h1>
+        <p class="subtitle">"A tiny hug waiting for you..."</p>
+      </div>
+
+      <!-- Centerpiece Interactive Teddy Bear -->
+      <div class="teddy-wrapper" id="teddyWrapper" title="Click me for an extra hug! 🧸" aria-label="Cute Hugging Teddy Bear">
+        <svg class="teddy-svg" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Warm Halo Glow -->
+            <radialGradient id="haloGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(255, 235, 195, 0.85)" />
+              <stop offset="60%" stop-color="rgba(255, 220, 160, 0.35)" />
+              <stop offset="100%" stop-color="rgba(255, 220, 160, 0)" />
+            </radialGradient>
+            <!-- Teddy Fur Shading Gradient -->
+            <linearGradient id="furGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#A5734C" />
+              <stop offset="50%" stop-color="#8B5E3C" />
+              <stop offset="100%" stop-color="#734828" />
+            </linearGradient>
+            <!-- Ear Inner Pad Gradient -->
+            <linearGradient id="earPadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FCE1D4" />
+              <stop offset="100%" stop-color="#EBC4AF" />
+            </linearGradient>
+          </defs>
+
+          <!-- Glowing Warm Halo Behind Teddy -->
+          <circle cx="140" cy="145" r="125" fill="url(#haloGlow)" />
+
+          <!-- Left Fluffy Ear -->
+          <circle cx="62" cy="74" r="34" fill="url(#furGrad)" stroke="#5A3825" stroke-width="4.5" />
+          <circle cx="62" cy="74" r="20" fill="url(#earPadGrad)" />
+
+          <!-- Right Fluffy Ear -->
+          <circle cx="218" cy="74" r="34" fill="url(#furGrad)" stroke="#5A3825" stroke-width="4.5" />
+          <circle cx="218" cy="74" r="20" fill="url(#earPadGrad)" />
+
+          <!-- Teddy Body (Chubby Cozy Base) -->
+          <ellipse cx="140" cy="214" rx="72" ry="52" fill="url(#furGrad)" stroke="#5A3825" stroke-width="5" />
+          <!-- Belly Patch -->
+          <ellipse cx="140" cy="216" rx="46" ry="34" fill="#F4DEC8" opacity="0.9" />
+
+          <!-- Teddy Feet / Paws -->
+          <ellipse cx="82" cy="242" rx="22" ry="16" fill="url(#furGrad)" stroke="#5A3825" stroke-width="4" />
+          <circle cx="82" cy="242" r="11" fill="#FCE1D4" />
+          <ellipse cx="198" cy="242" rx="22" ry="16" fill="url(#furGrad)" stroke="#5A3825" stroke-width="4" />
+          <circle cx="198" cy="242" r="11" fill="#FCE1D4" />
+
+          <!-- Teddy Head -->
+          <ellipse cx="140" cy="132" rx="82" ry="72" fill="url(#furGrad)" stroke="#5A3825" stroke-width="5.5" />
+
+          <!-- Rosy Cheeks -->
+          <ellipse cx="68" cy="148" rx="16" ry="10" fill="#FFAEC6" opacity="0.8" />
+          <ellipse cx="212" cy="148" rx="16" ry="10" fill="#FFAEC6" opacity="0.8" />
+          <circle cx="64" cy="146" r="2" fill="#FFFFFF" />
+          <circle cx="216" cy="146" r="2" fill="#FFFFFF" />
+
+          <!-- Snout / Muzzle -->
+          <ellipse cx="140" cy="144" rx="34" ry="26" fill="#F4DEC8" stroke="#5A3825" stroke-width="3" />
+
+          <!-- Cute Heart-shaped Nose -->
+          <path d="M 140 134 C 137 128 128 128 128 136 C 128 142 140 148 140 148 C 140 148 152 142 152 136 C 152 128 143 128 140 134 Z" fill="#5A3825" />
+
+          <!-- Sweet Mouth -->
+          <path d="M 132 148 C 132 154 139 155 140 150 C 141 155 148 154 148 148" stroke="#5A3825" stroke-width="3.5" stroke-linecap="round" fill="none" />
+
+          <!-- Blinking Shiny Eyes -->
+          <g class="teddy-eyes">
+            <!-- Left Eye -->
+            <ellipse cx="98" cy="120" rx="12" ry="15" fill="#3D2012" />
+            <circle cx="95" cy="115" r="5" fill="#FFFFFF" />
+            <circle cx="102" cy="125" r="2.5" fill="#FFFFFF" />
+
+            <!-- Right Eye -->
+            <ellipse cx="182" cy="120" rx="12" ry="15" fill="#3D2012" />
+            <circle cx="179" cy="115" r="5" fill="#FFFFFF" />
+            <circle cx="186" cy="125" r="2.5" fill="#FFFFFF" />
+          </g>
+
+          <!-- Little Pink Heart Held with Both Paws -->
+          <g transform="translate(140, 196) scale(1.15)">
+            <!-- Glowing Pink Heart -->
+            <path d="M 0 -10 C -9 -21 -25 -10 -25 4 C -25 17 0 28 0 28 C 0 28 25 17 25 4 C 25 -10 9 -21 0 -10 Z" fill="#FF7B9D" stroke="#FFFFFF" stroke-width="2.5" filter="drop-shadow(0 2px 8px rgba(255, 123, 157, 0.6))" />
+            <!-- Soft Heart Specular Reflection -->
+            <ellipse cx="-7" cy="-2" rx="4" ry="2.5" fill="#FFFFFF" opacity="0.65" transform="rotate(-30 -7 -2)" />
+          </g>
+
+          <!-- Left Paw Hugging Heart -->
+          <ellipse cx="106" cy="198" rx="18" ry="15" fill="url(#furGrad)" stroke="#5A3825" stroke-width="3.5" transform="rotate(22 106 198)" />
+          <circle cx="104" cy="198" r="6" fill="#FCE1D4" />
+
+          <!-- Right Paw Hugging Heart -->
+          <ellipse cx="174" cy="198" rx="18" ry="15" fill="url(#furGrad)" stroke="#5A3825" stroke-width="3.5" transform="rotate(-22 174 198)" />
+          <circle cx="176" cy="198" r="6" fill="#FCE1D4" />
+        </svg>
+      </div>
+
+      <!-- Main Button -->
+      <button class="btn-hug" id="openHugBtn" aria-haspopup="dialog">
+        Open Your Hug 🤎
+      </button>
+    </div>
+  </main>
+
+  <!-- Cozy Popup Modal Card -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
+    <div class="modal-card">
+      <!-- Title -->
+      <h2 class="modal-title" id="modalHeading">
+        Hi Jannnuu 🥺💗
+      </h2>
+
+      <!-- Exact Heartfelt Message -->
+      <p class="modal-message">
+        I know today might feel a little tiring. Be extra kind to yourself, drink some water, eat something comforting, and rest whenever you can. Sending you the warmest hug and lots of love. You're doing amazing. 🌷🤍
+      </p>
+
+      <!-- Centerpiece: Mini Hugging Teddy + Glowing Heart + Sparkles -->
+      <div class="hug-centerpiece">
+        <!-- Mini Teddy SVG -->
+        <div class="mini-teddy-box">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+            <!-- Ears -->
+            <circle cx="30" cy="30" r="16" fill="#8B5E3C" stroke="#5A3825" stroke-width="3" />
+            <circle cx="30" cy="30" r="9" fill="#FCE1D4" />
+            <circle cx="90" cy="30" r="16" fill="#8B5E3C" stroke="#5A3825" stroke-width="3" />
+            <circle cx="90" cy="30" r="9" fill="#FCE1D4" />
+            <!-- Head -->
+            <ellipse cx="60" cy="62" rx="38" ry="32" fill="#8B5E3C" stroke="#5A3825" stroke-width="3.5" />
+            <!-- Snout -->
+            <ellipse cx="60" cy="68" rx="16" ry="12" fill="#F4DEC8" stroke="#5A3825" stroke-width="2" />
+            <!-- Nose & Smile -->
+            <polygon points="60,63 56,60 64,60" fill="#5A3825" />
+            <path d="M 56 68 Q 60 73 64 68" stroke="#5A3825" stroke-width="2" stroke-linecap="round" fill="none" />
+            <!-- Closed Smiling Eyes ^_^ -->
+            <path d="M 45 56 Q 50 49 55 56" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" />
+            <path d="M 65 56 Q 70 49 75 56" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" />
+            <!-- Rosy Cheeks -->
+            <ellipse cx="38" cy="68" rx="8" ry="5" fill="#FFAEC6" opacity="0.9" />
+            <ellipse cx="82" cy="68" rx="8" ry="5" fill="#FFAEC6" opacity="0.9" />
+          </svg>
+        </div>
+
+        <!-- Animated Glowing Heart -->
+        <svg class="modal-heart-glow" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 30 12 C 18 -4 -2 10 6 30 C 13 44 30 55 30 55 C 30 55 47 44 54 30 C 62 10 42 -4 30 12 Z" fill="#FF7B9D" stroke="#FFF" stroke-width="2" />
+        </svg>
+
+        <span style="font-size: 20px; animation: sparkleTwinkle 2s infinite ease-in-out;">✨</span>
+      </div>
+
+      <!-- Floating Comfort Checklist (4 cards) -->
+      <div class="checklist-grid">
+        <div class="comfort-card">
+          <span class="comfort-icon">💧</span>
+          <span>Water</span>
+        </div>
+        <div class="comfort-card">
+          <span class="comfort-icon">🍫</span>
+          <span>Snack</span>
+        </div>
+        <div class="comfort-card">
+          <span class="comfort-icon">🧸</span>
+          <span>Rest</span>
+        </div>
+        <div class="comfort-card">
+          <span class="comfort-icon">🌸</span>
+          <span>Big Hug</span>
+        </div>
+      </div>
+
+      <!-- Close Button -->
+      <button class="btn-close" id="closeModalBtn">
+        Okayyy 🤍
+      </button>
+    </div>
+  </div>
+
+  <!-- Vanilla JavaScript Logic + Web Audio API Chimes -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const openHugBtn = document.getElementById('openHugBtn');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const modalOverlay = document.getElementById('modalOverlay');
+      const teddyWrapper = document.getElementById('teddyWrapper');
+      const bgDecorations = document.getElementById('bgDecorations');
+      const secretNote = document.getElementById('secretNote');
+
+      // 1. Ambient Background Particles, Fairy Lights & Ribbons
+      const particleEmojis = ['🤍', '🧸', '🌸', '✨', '🐾', '🎀', '☁️', '🌷', '🦋'];
+      const totalFairyLights = 14;
+      const totalDrifting = 24;
+
+      // Spawn Fairy Light Glowing Orbs
+      for (let i = 0; i < totalFairyLights; i++) {
+        const light = document.createElement('div');
+        light.className = 'fairy-light';
+        const size = Math.random() * 12 + 8;
+        light.style.width = `${size}px`;
+        light.style.height = `${size}px`;
+        light.style.left = `${Math.random() * 95}%`;
+        light.style.top = `${Math.random() * 95}%`;
+        light.style.animationDelay = `${Math.random() * 4}s`;
+        light.style.animationDuration = `${Math.random() * 3 + 3}s`;
+        bgDecorations.appendChild(light);
+      }
+
+      // Spawn Drifting Particles
+      for (let i = 0; i < totalDrifting; i++) {
+        const item = document.createElement('div');
+        const isGoldSparkle = Math.random() < 0.3;
+
+        if (isGoldSparkle) {
+          item.className = 'gold-sparkle';
+          item.textContent = '✦';
+          item.style.fontSize = `${Math.random() * 14 + 10}px`;
+          item.style.left = `${Math.random() * 95}%`;
+          item.style.top = `${Math.random() * 90}%`;
+          item.style.animationDelay = `${Math.random() * 4}s`;
+          item.style.animationDuration = `${Math.random() * 2 + 2.5}s`;
+        } else {
+          item.className = 'cozy-particle';
+          item.textContent = particleEmojis[Math.floor(Math.random() * particleEmojis.length)];
+          item.style.fontSize = `${Math.random() * 16 + 14}px`;
+          item.style.left = `${Math.random() * 96}%`;
+          item.style.animationDuration = `${Math.random() * 6 + 8}s`;
+          item.style.animationDelay = `${Math.random() * 9}s`;
+        }
+        bgDecorations.appendChild(item);
+      }
+
+      // 2. Secret Love Notes Cycle
+      const loveNotes = [
+        "You're stronger than you think 🤍",
+        "Take your time 🌷",
+        "You deserve softness today.",
+        "One hug coming right up 🧸",
+        "Breathe in, breathe out ☕",
+        "Proud of you always 🌸",
+        "Drink some warm water 💧",
+        "You make the world warmer ☀️"
+      ];
+      let noteIndex = 0;
+
+      function showNextSecretNote() {
+        secretNote.classList.remove('visible');
+        setTimeout(() => {
+          noteIndex = (noteIndex + 1) % loveNotes.length;
+          secretNote.textContent = loveNotes[noteIndex];
+          secretNote.classList.add('visible');
+
+          // Hide after 4 seconds
+          setTimeout(() => {
+            secretNote.classList.remove('visible');
+          }, 4200);
+        }, 800);
+      }
+
+      // Initial note display + interval
+      setTimeout(() => {
+        secretNote.classList.add('visible');
+        setTimeout(() => secretNote.classList.remove('visible'), 4200);
+      }, 1200);
+
+      setInterval(showNextSecretNote, 8000);
+
+      // 3. Click Burst Particle Generator
+      function createHeartBurst(x, y) {
+        const burstCount = 18;
+        const emojis = ['🤍', '🧸', '🌸', '✨', '💗', '🎀', '🐾'];
+
+        for (let i = 0; i < burstCount; i++) {
+          const p = document.createElement('div');
+          p.className = 'burst-particle';
+          p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+          const angle = (Math.PI * 2 * i) / burstCount + (Math.random() - 0.5) * 0.4;
+          const distance = Math.random() * 115 + 75;
+          const tx = `${Math.cos(angle) * distance}px`;
+          const ty = `${Math.sin(angle) * distance - 20}px`;
+          const rot = `${(Math.random() - 0.5) * 90}deg`;
+
+          p.style.setProperty('--tx', tx);
+          p.style.setProperty('--ty', ty);
+          p.style.setProperty('--rot', rot);
+          p.style.left = `${x}px`;
+          p.style.top = `${y}px`;
+          p.style.fontSize = `${Math.random() * 16 + 18}px`;
+
+          document.body.appendChild(p);
+
+          setTimeout(() => {
+            p.remove();
+          }, 1200);
+        }
+      }
+
+      // 4. Interactive Teddy Click Behavior
+      teddyWrapper.addEventListener('click', (e) => {
+        const rect = teddyWrapper.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        createHeartBurst(centerX, centerY);
+
+        teddyWrapper.classList.remove('hug-tight');
+        void teddyWrapper.offsetWidth; // Trigger reflow
+        teddyWrapper.classList.add('hug-tight');
+
+        playSoftBellChime(523.25); // Gentle interactive chime note (C5)
+      });
+
+      // 5. Web Audio API - Cozy Calming Chimes Synthesizer
+      let audioCtx = null;
+      let chimeInterval = null;
+      let masterGain = null;
+
+      function initAudio() {
+        if (!audioCtx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) {
+            audioCtx = new AudioContext();
+          }
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }
+
+      function playSoftBellChime(freq, delay = 0) {
+        initAudio();
+        if (!audioCtx) return;
+
+        try {
+          const startTime = audioCtx.currentTime + delay;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          const filter = audioCtx.createBiquadFilter();
+
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(1400, startTime);
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, startTime);
+
+          // Warm harmonic chime envelope
+          gain.gain.setValueAtTime(0.0001, startTime);
+          gain.gain.linearRampToValueAtTime(0.12, startTime + 0.04);
+          gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 1.8);
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(masterGain || audioCtx.destination);
+
+          osc.start(startTime);
+          osc.stop(startTime + 2.0);
+        } catch (e) {
+          console.warn('Audio error:', e);
+        }
+      }
+
+      function startCozyChimes() {
+        initAudio();
+        if (!audioCtx) return;
+
+        masterGain = audioCtx.createGain();
+        masterGain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+        masterGain.gain.linearRampToValueAtTime(0.4, audioCtx.currentTime + 0.8);
+        masterGain.connect(audioCtx.destination);
+
+        // Pentatonic comforting chord notes: C5, E5, G5, B5, D6
+        const chords = [
+          [523.25, 659.25, 783.99],       // C Major (warm)
+          [587.33, 783.99, 880.00],       // G add9
+          [523.25, 659.25, 987.77, 1174.66], // C maj9
+          [659.25, 783.99, 1046.50]      // E minor 7
+        ];
+        let chordIdx = 0;
+
+        function triggerArpeggio() {
+          if (!audioCtx || audioCtx.state !== 'running') return;
+          const currentNotes = chords[chordIdx % chords.length];
+          chordIdx++;
+
+          currentNotes.forEach((note, i) => {
+            playSoftBellChime(note, i * 0.16);
+          });
+        }
+
+        // Trigger first warm chime immediately
+        triggerArpeggio();
+
+        // Repeat soothing arpeggios every 4.2 seconds
+        chimeInterval = setInterval(triggerArpeggio, 4200);
+      }
+
+      function stopCozyChimes() {
+        if (chimeInterval) {
+          clearInterval(chimeInterval);
+          chimeInterval = null;
+        }
+
+        if (masterGain && audioCtx) {
+          try {
+            masterGain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.5);
+            setTimeout(() => {
+              masterGain = null;
+            }, 550);
+          } catch (e) {
+            masterGain = null;
+          }
+        }
+      }
+
+      // 6. Open Hug Modal
+      openHugBtn.addEventListener('click', () => {
+        const rect = openHugBtn.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        createHeartBurst(centerX, centerY);
+
+        modalOverlay.classList.remove('closing');
+        modalOverlay.classList.add('active');
+
+        startCozyChimes();
+      });
+
+      // 7. Close Modal Function
+      function closeModal() {
+        stopCozyChimes();
+        modalOverlay.classList.add('closing');
+        setTimeout(() => {
+          modalOverlay.classList.remove('active');
+          modalOverlay.classList.remove('closing');
+        }, 400);
+      }
+
+      closeModalBtn.addEventListener('click', closeModal);
+
+      // Close on Backdrop Click
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModal();
+        }
+      });
+
+      // ESC key to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
