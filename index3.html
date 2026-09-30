@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f7d9de" />
-  <title>For My Pretty Girl — October, Always</title>
+  <title>For My Pretty Girl</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&family=Parisienne&display=swap" rel="stylesheet">
@@ -15,11 +15,11 @@
       --shadow:0 24px 70px rgba(92,31,49,.16);
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;overflow-x:clip}
     body{margin:0;color:var(--wine);font-family:"DM Sans",sans-serif;background:#fff7f3;overflow-x:hidden}
     button{font:inherit}
     .grain{position:fixed;inset:0;pointer-events:none;z-index:30;opacity:.16;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E")}
-    .hero{min-height:100svh;position:relative;display:grid;place-items:center;text-align:center;padding:110px 24px 90px;background:linear-gradient(rgba(255,245,243,.1),rgba(255,247,243,.55)),url('assets/october-floral-hero.png') center/cover no-repeat;isolation:isolate}
+    .hero{min-height:100svh;position:relative;display:grid;place-items:center;text-align:center;padding:110px 24px 90px;background:radial-gradient(ellipse at 50% 55%,rgba(255,255,255,.9),transparent 58%),radial-gradient(ellipse at 20% 20%,#f9d7df 0,transparent 42%),radial-gradient(ellipse at 85% 82%,#f4cbd5 0,transparent 38%),#fff7f3;isolation:isolate}
     .hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 47%,rgba(255,251,247,.18),rgba(107,34,55,.06));z-index:-1}
     .topbar{position:absolute;top:0;left:0;width:100%;padding:24px clamp(20px,5vw,64px);display:flex;justify-content:space-between;align-items:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
     .seal{width:44px;height:44px;border:1px solid rgba(104,42,60,.25);border-radius:50%;display:grid;place-items:center;font-family:"Parisienne";font-size:1.4rem;text-transform:none;letter-spacing:0;background:rgba(255,255,255,.25);backdrop-filter:blur(8px)}
@@ -35,6 +35,10 @@
     .rose-stage:hover .center-rose{filter:saturate(1.08) brightness(1.04)}
     .rose-stage.blooming{animation:roseBloom .75s cubic-bezier(.17,.89,.32,1.4)}
     .rose-stage.blooming .center-rose{animation:roseSpin .75s ease-out}
+    .hero-friends{display:flex;align-items:center;justify-content:center;gap:clamp(0px,2vw,24px);margin:5px auto -15px}
+    .hero-friends .rose-stage{margin:0}
+    .kuromi-stage{width:clamp(108px,16vw,160px);height:clamp(130px,19vw,190px);display:grid;place-items:center;animation:kuromiFloat 4s ease-in-out infinite;filter:drop-shadow(0 16px 18px rgba(130,54,82,.2))}
+    .kuromi-svg{width:100%;height:100%;overflow:visible}
     .intro{max-width:540px;margin:18px auto 28px;font-family:"Italiana",serif;font-size:clamp(1.08rem,2.1vw,1.35rem);line-height:1.7;color:#713d4c}
     .cta{border:0;border-radius:99px;background:var(--wine);color:#fff8f4;padding:15px 25px;letter-spacing:.05em;cursor:pointer;box-shadow:0 12px 28px rgba(104,42,60,.25);transition:.25s ease}
     .cta:hover{transform:translateY(-3px);background:#7c3349;box-shadow:0 16px 34px rgba(104,42,60,.3)}
@@ -90,12 +94,14 @@
     @keyframes roseGlow{0%,100%{transform:scale(.9);opacity:.55}50%{transform:scale(1.12);opacity:1}}
     @keyframes roseBloom{0%{transform:scale(1)}45%{transform:scale(1.17) translateY(-9px)}100%{transform:scale(1)}}
     @keyframes roseSpin{0%{transform:rotate(-3deg)}45%{transform:rotate(10deg)}100%{transform:rotate(-3deg)}}
+    @keyframes kuromiFloat{0%,100%{transform:translateY(3px) rotate(2deg)}50%{transform:translateY(-8px) rotate(-2deg)}}
     @media(max-width:760px){
       .hero{padding-top:100px;background-position:center}.topbar{padding:18px}.topbar>span{display:none}
+      .hero-friends{gap:0}.kuromi-stage{width:clamp(92px,27vw,130px);height:clamp(112px,32vw,154px)}
       .cards{grid-template-columns:1fr;max-width:430px}.card,.card:nth-child(2){min-height:210px;transform:none}.card:nth-child(2):hover{transform:translateY(-9px)}
       .letter-section,.reasons,.promise{padding-top:90px;padding-bottom:90px}.rose-stage:after{right:-16px}
     }
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.marquee-track,.scroll-note{animation:none}.petal{display:none}.hero-copy{animation:none}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.marquee-track,.scroll-note,.kuromi-stage{animation:none}.petal{display:none}.hero-copy{animation:none}}
   </style>
 </head>
 <body>
@@ -105,12 +111,43 @@
 
   <main>
     <section class="hero">
-      <nav class="topbar"><span>01 · October, always</span><div class="seal">for her</div><span>made with a full heart</span></nav>
+      <nav class="topbar"><span>a little love note</span><div class="seal">for her</div><span>made with a full heart</span></nav>
       <div class="hero-copy">
         <p class="eyebrow">Pretty Girls Day</p>
         <h1>For my pretty girl<em>my favourite feeling</em></h1>
-        <div class="rose-stage" id="centerRose" role="button" tabindex="0" aria-label="A pink rose for you">
-          <img class="center-rose" src="assets/pink-rose-centerpiece.png" alt="A beautiful pink rose" />
+        <div class="hero-friends">
+          <div class="rose-stage" id="centerRose" role="button" tabindex="0" aria-label="A pink rose for you">
+            <img class="center-rose" src="assets/pink-rose-centerpiece.png" alt="A beautiful pink rose" />
+          </div>
+          <div class="kuromi-stage" role="img" aria-label="A cute pink Kuromi">
+            <svg class="kuromi-svg" viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="hoodPink" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ffb8d0" />
+                  <stop offset="1" stop-color="#d94f82" />
+                </linearGradient>
+                <linearGradient id="facePink" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#fff9fb" />
+                  <stop offset="1" stop-color="#ffe4ec" />
+                </linearGradient>
+              </defs>
+              <ellipse cx="90" cy="179" rx="50" ry="8" fill="#b9557a" opacity=".12" />
+              <path d="M42 92C25 80 20 48 27 19c2-9 11-11 17-3l27 35 40-3 27-31c6-7 15-4 16 5 4 29-4 57-21 72z" fill="url(#hoodPink)" stroke="#a83a68" stroke-width="4" stroke-linejoin="round" />
+              <path d="M35 27c3-5 7-4 11 1l21 27-23 6C37 51 33 39 35 27z" fill="#ffe7f0" opacity=".9" />
+              <path d="M142 29c4-5 9-5 10 2 1 14-3 26-10 36l-21-10z" fill="#ffe7f0" opacity=".9" />
+              <path d="M51 74c0-23 17-40 39-40s39 17 39 40v54c0 23-17 39-39 39s-39-16-39-39z" fill="url(#hoodPink)" stroke="#a83a68" stroke-width="4" />
+              <path d="M61 85c0-18 12-30 29-30s29 12 29 30v38c0 18-12 30-29 30s-29-12-29-30z" fill="url(#facePink)" stroke="#f6b1c8" stroke-width="2" />
+              <path d="M73 98c4-7 11-7 15 0v13c-4 7-11 7-15 0zM102 98c4-7 11-7 15 0v13c-4 7-11 7-15 0z" fill="#592b49" />
+              <circle cx="77" cy="100" r="2.5" fill="#fff" /><circle cx="106" cy="100" r="2.5" fill="#fff" />
+              <ellipse cx="68" cy="119" rx="8" ry="4" fill="#f28cab" opacity=".7" /><ellipse cx="122" cy="119" rx="8" ry="4" fill="#f28cab" opacity=".7" />
+              <path d="M84 124q6 7 12 0" fill="none" stroke="#a83a68" stroke-width="3" stroke-linecap="round" />
+              <path d="M90 54c-5 0-8 4-8 8v4h3v4h10v-4h3v-4c0-4-3-8-8-8z" fill="#fff3f7" />
+              <circle cx="87" cy="61" r="1.5" fill="#bd4775" /><circle cx="93" cy="61" r="1.5" fill="#bd4775" />
+              <path d="M88 66h4" stroke="#bd4775" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M58 166c8-9 17-13 32-13s24 4 32 13l10 12H48z" fill="#ec8eaf" stroke="#a83a68" stroke-width="4" stroke-linejoin="round" />
+              <path d="M72 163c4-7 10-10 18-10s14 3 18 10" fill="none" stroke="#ffd9e5" stroke-width="4" stroke-linecap="round" />
+            </svg>
+          </div>
         </div>
         <p class="intro">Some flowers bloom in spring. Somehow, every beautiful thing in me began to bloom when I found you.</p>
         <button class="cta" id="bloomBtn">tap to let this bloom &nbsp;♡</button>
@@ -155,7 +192,7 @@
   <footer>Happy Pretty Girls Day · to the prettiest soul I know ♡</footer>
 
   <script>
-    const mottos=["YOU ARE MY FAVOURITE HELLO","PRETTY HEART · PRETTY SOUL","I'D CHOOSE YOU IN EVERY SEASON","MY OCTOBER GIRL","YOU MAKE LIFE BLOOM"];
+    const mottos=["YOU ARE MY FAVOURITE HELLO","PRETTY HEART · PRETTY SOUL","I'D CHOOSE YOU IN EVERY SEASON","MY SWEETEST GIRL","YOU MAKE LIFE BLOOM"];
     const set=[...mottos,...mottos];
     document.querySelector('#marquee').innerHTML=set.map(x=>`<span>${x}</span><i>✦</i>`).join('');
 
