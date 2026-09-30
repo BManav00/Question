@@ -28,7 +28,14 @@
     .eyebrow:before,.eyebrow:after{content:"";width:40px;height:1px;background:#ba7487}
     h1{font-family:"Italiana",serif;font-size:clamp(4rem,10vw,8.2rem);font-weight:400;line-height:.82;letter-spacing:-.055em;margin:0;text-wrap:balance}
     h1 em{display:block;font-family:"Parisienne",cursive;font-size:.63em;font-weight:400;color:var(--rose);margin-top:.22em;letter-spacing:0}
-    .intro{max-width:540px;margin:28px auto 32px;font-family:"Italiana",serif;font-size:clamp(1.08rem,2.1vw,1.35rem);line-height:1.7;color:#713d4c}
+    .rose-stage{width:clamp(145px,22vw,230px);height:clamp(155px,23vw,245px);margin:5px auto -15px;position:relative;display:grid;place-items:center;cursor:pointer;animation:roseFloat 4.5s ease-in-out infinite;filter:drop-shadow(0 20px 20px rgba(104,42,60,.19))}
+    .rose-stage:before{content:"";position:absolute;width:72%;height:72%;border-radius:50%;background:radial-gradient(circle,rgba(255,235,240,.88),rgba(244,178,194,.12) 58%,transparent 72%);animation:roseGlow 3.2s ease-in-out infinite}
+    .rose-stage:after{content:"tap me";position:absolute;right:-27px;bottom:34px;font-family:"Parisienne";font-size:1.1rem;color:#9c5a6d;transform:rotate(-8deg)}
+    .center-rose{position:relative;width:100%;height:100%;object-fit:contain;transform-origin:50% 86%;animation:roseSway 4.5s ease-in-out infinite;transition:filter .3s}
+    .rose-stage:hover .center-rose{filter:saturate(1.08) brightness(1.04)}
+    .rose-stage.blooming{animation:roseBloom .75s cubic-bezier(.17,.89,.32,1.4)}
+    .rose-stage.blooming .center-rose{animation:roseSpin .75s ease-out}
+    .intro{max-width:540px;margin:18px auto 28px;font-family:"Italiana",serif;font-size:clamp(1.08rem,2.1vw,1.35rem);line-height:1.7;color:#713d4c}
     .cta{border:0;border-radius:99px;background:var(--wine);color:#fff8f4;padding:15px 25px;letter-spacing:.05em;cursor:pointer;box-shadow:0 12px 28px rgba(104,42,60,.25);transition:.25s ease}
     .cta:hover{transform:translateY(-3px);background:#7c3349;box-shadow:0 16px 34px rgba(104,42,60,.3)}
     .scroll-note{position:absolute;bottom:24px;font-size:.67rem;text-transform:uppercase;letter-spacing:.22em;color:#85505f;animation:bob 2s ease-in-out infinite}
@@ -60,13 +67,6 @@
     .card h3{font-family:"Italiana";font-weight:400;font-size:1.8rem;line-height:1.2;margin:22px 0 12px}
     .card p{font-size:.9rem;line-height:1.7;color:#75535d;margin:0}
 
-    .october{min-height:88svh;padding:110px 20px;display:grid;place-items:center;text-align:center;background:linear-gradient(rgba(82,31,44,.6),rgba(82,31,44,.72)),url('assets/october-floral-hero.png') center/cover fixed;color:white}
-    .october-inner{max-width:820px}
-    .october .section-label{color:#f3bdca}
-    .october h2{font-size:clamp(3.3rem,8vw,6.7rem);margin-bottom:25px}
-    .october p{max-width:620px;margin:0 auto 34px;line-height:1.85;color:#ffeef1}
-    .date{font-family:"Parisienne";font-size:clamp(2.4rem,6vw,4rem);color:#ffc9d5}
-
     .promise{padding:120px 22px 90px;background:#fffaf7;text-align:center}
     .promise-wrap{max-width:780px;margin:auto}
     .promise-box{margin:36px auto 0;border:1px solid #ddabb8;background:#fff;padding:46px clamp(24px,6vw,60px);position:relative;box-shadow:var(--shadow)}
@@ -85,10 +85,15 @@
     @keyframes bob{50%{transform:translateY(6px)}}
     @keyframes marquee{to{transform:translateX(-50%)}}
     @keyframes fall{to{transform:translate(var(--drift),112vh) rotate(620deg);opacity:.15}}
+    @keyframes roseFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes roseSway{0%,100%{transform:rotate(-3deg) scale(1)}50%{transform:rotate(3deg) scale(1.025)}}
+    @keyframes roseGlow{0%,100%{transform:scale(.9);opacity:.55}50%{transform:scale(1.12);opacity:1}}
+    @keyframes roseBloom{0%{transform:scale(1)}45%{transform:scale(1.17) translateY(-9px)}100%{transform:scale(1)}}
+    @keyframes roseSpin{0%{transform:rotate(-3deg)}45%{transform:rotate(10deg)}100%{transform:rotate(-3deg)}}
     @media(max-width:760px){
       .hero{padding-top:100px;background-position:center}.topbar{padding:18px}.topbar>span{display:none}
       .cards{grid-template-columns:1fr;max-width:430px}.card,.card:nth-child(2){min-height:210px;transform:none}.card:nth-child(2):hover{transform:translateY(-9px)}
-      .letter-section,.reasons,.promise{padding-top:90px;padding-bottom:90px}.october{background-attachment:scroll}
+      .letter-section,.reasons,.promise{padding-top:90px;padding-bottom:90px}.rose-stage:after{right:-16px}
     }
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.marquee-track,.scroll-note{animation:none}.petal{display:none}.hero-copy{animation:none}}
   </style>
@@ -104,6 +109,9 @@
       <div class="hero-copy">
         <p class="eyebrow">Pretty Girls Day</p>
         <h1>For my pretty girl<em>my favourite feeling</em></h1>
+        <div class="rose-stage" id="centerRose" role="button" tabindex="0" aria-label="A pink rose for you">
+          <img class="center-rose" src="assets/pink-rose-centerpiece.png" alt="A beautiful pink rose" />
+        </div>
         <p class="intro">Some flowers bloom in spring. Somehow, every beautiful thing in me began to bloom when I found you.</p>
         <button class="cta" id="bloomBtn">tap to let this bloom &nbsp;♡</button>
       </div>
@@ -135,15 +143,6 @@
       </div>
     </section>
 
-    <section class="october">
-      <div class="october-inner">
-        <div class="section-label">our season</div>
-        <h2>I found home<br>in October.</h2>
-        <p>In a season of falling leaves, I found myself falling for you. And if I had every October all over again, I would still look for you in every one.</p>
-        <div class="date">you, me & the softest kind of forever</div>
-      </div>
-    </section>
-
     <section class="promise">
       <div class="promise-wrap">
         <div class="section-label">one last thing</div>
@@ -169,6 +168,10 @@
       },i*90);
     }
     document.querySelector('#bloomBtn').addEventListener('click',()=>{petalBurst(34);document.querySelector('.letter-section').scrollIntoView({behavior:'smooth'});});
+    const rose=document.querySelector('#centerRose');
+    const bloomRose=()=>{rose.classList.remove('blooming');void rose.offsetWidth;rose.classList.add('blooming');petalBurst(16);};
+    rose.addEventListener('click',bloomRose);
+    rose.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();bloomRose();}});
 
     const promises=[
       "I promise to listen to understand—not just to reply.",
@@ -195,7 +198,7 @@
     });
 
     const seen=new IntersectionObserver(entries=>entries.forEach(x=>{if(x.isIntersecting){x.target.animate([{opacity:0,transform:'translateY(28px)'},{opacity:1,transform:'none'}],{duration:850,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});seen.unobserve(x.target)}}),{threshold:.15});
-    document.querySelectorAll('.letter,.card,.october-inner,.promise-wrap').forEach(el=>seen.observe(el));
+    document.querySelectorAll('.letter,.card,.promise-wrap').forEach(el=>seen.observe(el));
   </script>
 </body>
 </html>
