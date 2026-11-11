@@ -6,6 +6,11 @@ const soundToggle = document.getElementById('soundToggle');
 const soundLabel = soundToggle.querySelector('.sound-label');
 const wishButton = document.getElementById('wishButton');
 const wishReveal = document.getElementById('wishReveal');
+const giftBoxes = [...document.querySelectorAll('[data-gift]')];
+const giftCount = document.getElementById('giftCount');
+const giftProgress = document.getElementById('giftProgress');
+const giftFinale = document.getElementById('giftFinale');
+const resetGifts = document.getElementById('resetGifts');
 const opened = new Set();
 let soundOn = false;
 let audioContext;
@@ -113,6 +118,34 @@ wishButton.addEventListener('click', (event) => {
   petals(35);
 });
 
+function updateGifts(celebrate = false) {
+  const selected = giftBoxes.filter((box) => box.checked).length;
+  giftCount.textContent = selected;
+  giftProgress.style.width = `${selected / 11 * 100}%`;
+  giftFinale.classList.toggle('show', selected === 11);
+  localStorage.setItem('rasmalai-gifts', JSON.stringify(giftBoxes.map((box) => box.checked)));
+  if (selected === 11 && celebrate) {
+    showToast('All 11 gifts are yours, Rasmalai ♡');
+    petals(28);
+    chime(880);
+  }
+}
+
+try {
+  const savedGifts = JSON.parse(localStorage.getItem('rasmalai-gifts') || '[]');
+  giftBoxes.forEach((box, index) => { box.checked = Boolean(savedGifts[index]); });
+} catch (_) {
+  localStorage.removeItem('rasmalai-gifts');
+}
+updateGifts();
+
+giftBoxes.forEach((box) => box.addEventListener('change', () => updateGifts(true)));
+resetGifts.addEventListener('click', () => {
+  giftBoxes.forEach((box) => { box.checked = false; });
+  updateGifts();
+  showToast('All eleven gifts are wrapped again 🎀');
+});
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -125,7 +158,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: .12 });
 
-document.querySelectorAll('.letter-card, .wish-card, .memory-copy, .photo-wrap').forEach((element) => observer.observe(element));
+document.querySelectorAll('.letter-card, .wish-card, .gift-item, .memory-copy, .photo-wrap').forEach((element) => observer.observe(element));
 
 setTimeout(() => petals(7), 900);
 

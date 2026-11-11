@@ -61,7 +61,7 @@
         <p class="salutation">To my Rasmalai,</p>
         <h2 id="letter-title">If I could save one moment, I’d save this feeling.</h2>
         <p>The feeling of wishing for you at exactly 11:11. Not because I need luck to keep you—just because, out of everything in this giant world, you are still the wish I’d make twice.</p>
-        <p>So I collected eleven little pieces of us and tucked them away here. Open them slowly. They are meant to last.</p>
+        <p>So I collected eleven little pieces of us and tucked them away here—for your brave heart and the soft little child inside you who still deserves flowers, chocolates, tiny surprises, and all the gentleness in the world.</p>
         <p class="signature">Always yours, <span>♡</span></p>
       </div>
       <div class="side-stamp" aria-hidden="true">AIR MAIL · DELIVER WITH LOVE</div>
@@ -91,9 +91,9 @@
         </button>
         <button class="wish-card" type="button" data-wish="3" aria-expanded="false">
           <span class="wish-number">03</span><span class="wish-icon">❀</span>
-          <span class="wish-title">Roses, always</span>
+          <span class="wish-title">Flowers, always</span>
           <span class="seal" aria-hidden="true">open</span>
-          <span class="wish-message">Pink roses for your softness. White roses for your heart. Both, because one kind could never be enough.</span>
+          <span class="wish-message">Pink roses for your softness, white roses for your heart, and lilies for the quiet beauty you carry everywhere.</span>
         </button>
         <button class="wish-card" type="button" data-wish="4" aria-expanded="false">
           <span class="wish-number">04</span><span class="wish-icon">🥣</span>
@@ -123,7 +123,7 @@
           <span class="wish-number">08</span><span class="wish-icon">☁</span>
           <span class="wish-title">A soft place</span>
           <span class="seal" aria-hidden="true">open</span>
-          <span class="wish-message">I wish I can always be a safe place for your loud dreams, quiet fears, and every version of you.</span>
+          <span class="wish-message">I wish I can always be a safe place for your loud dreams, quiet fears, and the soft little child inside you who deserves to feel protected and adored.</span>
         </button>
         <button class="wish-card" type="button" data-wish="9" aria-expanded="false">
           <span class="wish-number">09</span><span class="wish-icon">☺</span>
@@ -146,13 +146,49 @@
       </div>
     </section>
 
+    <section class="gifts-section" id="gifts" aria-labelledby="gifts-title">
+      <div class="gift-heading">
+        <div>
+          <p class="eyebrow">not just wishes · little promises</p>
+          <h2 id="gifts-title">11 gifts for <em>my Rasmalai</em></h2>
+        </div>
+        <div class="gift-progress" aria-live="polite">
+          <span><b id="giftCount">0</b> of 11 surprises collected</span>
+          <div class="progress-track"><i id="giftProgress"></i></div>
+        </div>
+      </div>
+
+      <p class="gift-intro">A tiny checklist made especially for you. Tick each one when it finds its way into your hands.</p>
+
+      <div class="gift-list" id="giftList">
+        <label class="gift-item"><input type="checkbox" data-gift="1" /><span class="gift-check">✓</span><span class="gift-emoji">🤍</span><span><b>White & pink lilies</b><small>A bouquet as soft and beautiful as you.</small></span><i>01</i></label>
+        <label class="gift-item"><input type="checkbox" data-gift="2" /><span class="gift-check">✓</span><span class="gift-emoji">🌹</span><span><b>Roses with a note</b><small>Pink, white, and words meant only for you.</small></span><i>02</i></label>
+        <label class="gift-item"><input type="checkbox" data-gift="3" /><span class="gift-check">✓</span><span class="gift-emoji">🍫</span><span><b>A chocolate treasure box</b><small>Every favourite, with the best one saved for last.</small></span><i>03</i></label>
+        <label class="gift-item"><input type="checkbox" data-gift="4" /><span class="gift-check">✓</span><span class="gift-emoji">✨</span><span><b>The prettiest lip gloss</b><small>A little pink shine for your already perfect smile.</small></span><i>04</i></label>
+        <label class="gift-item"><input type="checkbox" data-gift="5" /><span class="gift-check">✓</span><span class="gift-emoji">🥣</span><span><b>A Rasmalai date</b><small>Extra sweet, because it shares your name.</small></span><i>05</i></label>
+        <label class="gift-item"><input type="checkbox" data-gift="6" /><span class="gift-check">✓</span><span class="gift-emoji">💙</span><span><b>A Stitch surprise</b><small>For our loyal, chaotic little ohana.</small></span><i>06</i></label>
+        <label class="gift-item"><input type="checkbox" data-gift="7" /><span class="gift-check">✓</span><span class="gift-emoji">🖤</span><span><b>A Kuromi charm</b><small>Cute, mischievous, and full of your energy.</small></span><i>07</i></label>
+        <label class="gift-item"><input type="checkbox" data-gift="8" /><span class="gift-check">✓</span><span class="gift-emoji">🐼</span><span><b>A panda cuddle</b><small>Something soft for the soft child in your heart.</small></span><i>08</i></label>
+        <label class="gift-item"><input type="checkbox" data-gift="9" /><span class="gift-check">✓</span><span class="gift-emoji">✈️</span><span><b>A tiny plane keepsake</b><small>Until we share that window seat together.</small></span><i>09</i></label>
+        <label class="gift-item"><input type="checkbox" data-gift="10" /><span class="gift-check">✓</span><span class="gift-emoji">🗽</span><span><b>A New York dream token</b><small>A small promise of a very big adventure.</small></span><i>10</i></label>
+        <label class="gift-item special-gift"><input type="checkbox" data-gift="11" /><span class="gift-check">✓</span><span class="gift-emoji">🎁</span><span><b>A gift made only for you</b><small>Our photo, my letter, and eleven reasons I choose you.</small></span><i>11</i></label>
+      </div>
+
+      <div class="gift-finale" id="giftFinale" role="status" aria-live="polite">
+        <span>11/11</span>
+        <p>Every gift is yours, but the most personal one is this promise:</p>
+        <strong>I’ll always protect the softness in you. ♡</strong>
+      </div>
+      <button class="reset-gifts" id="resetGifts" type="button">Wrap the gifts again</button>
+    </section>
+
     <section class="memory-section" aria-labelledby="memory-title">
       <div class="memory-copy">
         <p class="eyebrow">one photograph · a thousand feelings</p>
-        <h2 id="memory-title">Our favourite moment belongs here.</h2>
-        <p>This frame is waiting for the photo of us that makes time stop for a second. Until then, it is holding the space—just like I’ll always hold space for you.</p>
+        <h2 id="memory-title">Our favourite moment lives here.</h2>
+        <p>A happy hug, a pink dress, and a moment I would keep forever. This is the first piece of your personalized gift—the rest is every memory we still get to make.</p>
         <div class="tiny-list">
-          <span>pink skies</span><i>·</i><span>window seats</span><i>·</i><span>us</span>
+          <span>lilies</span><i>·</i><span>pink skies</span><i>·</i><span>window seats</span><i>·</i><span>us</span>
         </div>
       </div>
       <div class="photo-wrap">
