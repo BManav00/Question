@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#fff7fa" />
+  <meta name="description" content="Eleven little wishes, sealed at 11:11, for my Rasmalai." />
+  <title>11:11 — For My Rasmalai</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="petals" aria-hidden="true"></div>
+
+  <header class="hero" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top">11<span>:</span>11</a>
+      <div class="nav-right">
+        <span class="opened-count" aria-live="polite"><b id="openedCount">0</b>/11 opened</span>
+        <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false" title="Toggle tiny chimes">
+          <span aria-hidden="true">♪</span><span class="sound-label">sound off</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="flight-path" aria-hidden="true">
+      <svg viewBox="0 0 900 260" preserveAspectRatio="none">
+        <path d="M-30 220C170 10 420 330 940 36" />
+      </svg>
+      <span class="paper-plane">✈</span>
+    </div>
+
+    <div class="hero-copy">
+      <p class="eyebrow">sealed on 11 · 11 · at 11:11</p>
+      <h1>A little time capsule<br />for my <em>Rasmalai.</em></h1>
+      <p class="intro">Eleven tiny wishes for the girl who makes ordinary days feel softer, sweeter, and a little more magical.</p>
+      <a class="primary-button" href="#capsule">Open the capsule <span aria-hidden="true">↓</span></a>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <div class="rose rose-a"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="rose rose-b"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="moon">11:11</div>
+      <div class="cloud cloud-one"></div>
+      <div class="cloud cloud-two"></div>
+      <div class="skyline">
+        <span></span><span></span><span class="spire"></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <p class="hero-note">destination: every beautiful tomorrow, together</p>
+  </header>
+
+  <main>
+    <section class="letter-section" aria-labelledby="letter-title">
+      <div class="section-number">00</div>
+      <div class="letter-card">
+        <div class="postmark" aria-hidden="true">11:11<br /><span>WISH MAIL</span></div>
+        <p class="salutation">To my Rasmalai,</p>
+        <h2 id="letter-title">If I could save one moment, I’d save this feeling.</h2>
+        <p>The feeling of wishing for you at exactly 11:11. Not because I need luck to keep you—just because, out of everything in this giant world, you are still the wish I’d make twice.</p>
+        <p>So I collected eleven little pieces of us and tucked them away here. Open them slowly. They are meant to last.</p>
+        <p class="signature">Always yours, <span>♡</span></p>
+      </div>
+      <div class="side-stamp" aria-hidden="true">AIR MAIL · DELIVER WITH LOVE</div>
+    </section>
+
+    <section class="capsule" id="capsule" aria-labelledby="capsule-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">one wish at a time</p>
+          <h2 id="capsule-title">11 things I wish for <em>us</em></h2>
+        </div>
+        <p>Tap each sealed wish. The last one opens only after the first ten have been found.</p>
+      </div>
+
+      <div class="wish-grid" id="wishGrid">
+        <button class="wish-card" type="button" data-wish="1" aria-expanded="false">
+          <span class="wish-number">01</span><span class="wish-icon">✈</span>
+          <span class="wish-title">Skies made for you</span>
+          <span class="seal" aria-hidden="true">open</span>
+          <span class="wish-message">I wish you windows full of clouds, safe landings, and a hundred reasons to keep looking up.</span>
+        </button>
+        <button class="wish-card" type="button" data-wish="2" aria-expanded="false">
+          <span class="wish-number">02</span><span class="wish-icon">🏙</span>
+          <span class="wish-title">A New York minute</span>
+          <span class="seal" aria-hidden="true">open</span>
+          <span class="wish-message">I wish for us under New York lights—lost in the city, never lost from each other.</span>
+        </button>
+        <button class="wish-card" type="button" data-wish="3" aria-expanded="false">
+          <span class="wish-number">03</span><span class="wish-icon">❀</span>
+          <span class="wish-title">Roses, always</span>
+          <span class="seal" aria-hidden="true">open</span>
+          <span class="wish-message">Pink roses for your softness. White roses for your heart. Both, because one kind could never be enough.</span>
+        </button>
+        <button class="wish-card" type="button" data-wish="4" aria-expanded="false">
+          <span class="wish-number">04</span><span class="wish-icon">🥣</span>
+          <span class="wish-title">Something sweet</span>
+          <span class="seal" aria-hidden="true">open</span>
+          <span class="wish-message">I wish every hard day ends with extra Rasmalai—and that I always get to call you mine.</span>
+        </button>
+        <button class="wish-card" type="button" data-wish="5" aria-expanded="false">
+          <span class="wish-number">05</span><span class="wish-icon blue">♡</span>
+          <span class="wish-title">Stitch-level loyal</span>
+          <span class="seal" aria-hidden="true">open</span>
+          <span class="wish-message">Our little ohana: chaotic, loyal, and held together with the kind of love that never leaves anyone behind.</span>
+        </button>
+        <button class="wish-card" type="button" data-wish="6" aria-expanded="false">
+          <span class="wish-number">06</span><span class="wish-icon dark">♠</span>
+          <span class="wish-title">Kuromi energy</span>
+          <span class="seal" aria-hidden="true">open</span>
+          <span class="wish-message">I wish you keep every bit of your cute, mischievous, wonderfully fearless sparkle.</span>
+        </button>
+        <button class="wish-card" type="button" data-wish="7" aria-expanded="false">
+          <span class="wish-number">07</span><span class="wish-icon">🐼</span>
+          <span class="wish-title">Panda pauses</span>
+          <span class="seal" aria-hidden="true">open</span>
+          <span class="wish-message">Slow mornings, warm hugs, sleepy calls, and all the peaceful nothing-times that become everything.</span>
+        </button>
+        <button class="wish-card" type="button" data-wish="8" aria-expanded="false">
+          <span class="wish-number">08</span><span class="wish-icon">☁</span>
+          <span class="wish-title">A soft place</span>
+          <span class="seal" aria-hidden="true">open</span>
+          <span class="wish-message">I wish I can always be a safe place for your loud dreams, quiet fears, and every version of you.</span>
+        </button>
+        <button class="wish-card" type="button" data-wish="9" aria-expanded="false">
+          <span class="wish-number">09</span><span class="wish-icon">☺</span>
+          <span class="wish-title">That laugh</span>
+          <span class="seal" aria-hidden="true">open</span>
+          <span class="wish-message">I wish for a lifetime of the laugh that makes my favourite person even more beautiful.</span>
+        </button>
+        <button class="wish-card" type="button" data-wish="10" aria-expanded="false">
+          <span class="wish-number">10</span><span class="wish-icon">∞</span>
+          <span class="wish-title">More adventures</span>
+          <span class="seal" aria-hidden="true">open</span>
+          <span class="wish-message">Boarding passes, tiny cafés, wrong turns, photos, stories—and always another adventure waiting.</span>
+        </button>
+        <button class="wish-card final-wish locked" type="button" data-wish="11" aria-expanded="false" aria-disabled="true">
+          <span class="wish-number">11</span><span class="wish-icon">☆</span>
+          <span class="wish-title">The 11:11 wish</span>
+          <span class="seal" aria-hidden="true">locked</span>
+          <span class="wish-message">My final wish is simple: in every city, every sky, and every life that follows—let there still be an us.</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="memory-section" aria-labelledby="memory-title">
+      <div class="memory-copy">
+        <p class="eyebrow">one photograph · a thousand feelings</p>
+        <h2 id="memory-title">Our favourite moment belongs here.</h2>
+        <p>This frame is waiting for the photo of us that makes time stop for a second. Until then, it is holding the space—just like I’ll always hold space for you.</p>
+        <div class="tiny-list">
+          <span>pink skies</span><i>·</i><span>window seats</span><i>·</i><span>us</span>
+        </div>
+      </div>
+      <div class="photo-wrap">
+        <div class="tape tape-one"></div>
+        <div class="tape tape-two"></div>
+        <div class="photo-frame">
+          <div class="photo-placeholder">
+            <span class="mini-plane">✈</span>
+            <div class="silhouettes"><i></i><i></i></div>
+            <p>our photo<br /><small>goes here ♡</small></p>
+          </div>
+          <p class="photo-caption">the easiest “yes” my heart ever made</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="forever" id="forever" aria-labelledby="forever-title">
+      <div class="stars" aria-hidden="true"></div>
+      <p class="eyebrow">when the clock finds 11:11</p>
+      <h2 id="forever-title">Close your eyes.<br />Make a wish.</h2>
+      <p>I already made mine.</p>
+      <div class="clock" aria-label="Eleven eleven">11<span>:</span>11</div>
+      <button class="wish-button" id="wishButton" type="button">Make the wish <span>♡</span></button>
+      <div class="wish-reveal" id="wishReveal" role="status" aria-live="polite">
+        <p>Wish saved for the future:</p>
+        <strong>“You. Me. New York. A window seat.<br />And every tomorrow after that.”</strong>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with eleven wishes for <em>my Rasmalai</em></p>
+    <a href="#top">Back to the sky ↑</a>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
+
