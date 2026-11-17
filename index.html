@@ -1,592 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Ek Question Hai 💖</title>
-  
-  <!-- Cute Google Fonts -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8dce7">
+  <meta name="description" content="A little Princess Day collection of custom kawaii collectible figures, made just for you.">
+  <title>Princess Day — A Little Figure Collection</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Parisienne&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-start: #FFD6E7;
-      --bg-end: #FFC1D6;
-      --primary-pink: #FF6B9D;
-      --primary-pink-dark: #FF4D87;
-      --accent-pink: #FFA4C4;
-      --text-color: #5C3246;
-      --white: #FFFFFF;
-      --shadow-soft: 0 10px 25px rgba(255, 107, 157, 0.25);
-      --shadow-hover: 0 14px 30px rgba(255, 107, 157, 0.38);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Fredoka', 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, cursive, sans-serif;
-      background: linear-gradient(135deg, var(--bg-start) 0%, #FFE2ED 50%, var(--bg-end) 100%);
-      color: var(--text-color);
-    }
-
-    /* Fullscreen Wrapper */
-    .app-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: filter 0.4s ease, transform 0.4s ease;
-      z-index: 10;
-      padding: 20px;
-    }
-
-    /* Floating Particles Background */
-    .background-decorations {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .heart, .sparkle {
-      position: absolute;
-      opacity: 0;
-      animation: floatUp 7s infinite linear;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(110vh) scale(0.6) rotate(0deg);
-        opacity: 0;
-      }
-      15% {
-        opacity: 0.75;
-      }
-      80% {
-        opacity: 0.75;
-      }
-      100% {
-        transform: translateY(-15vh) scale(1.1) rotate(25deg);
-        opacity: 0;
-      }
-    }
-
-    @keyframes twinkle {
-      0%, 100% {
-        transform: scale(0.3) rotate(0deg);
-        opacity: 0.2;
-      }
-      50% {
-        transform: scale(1.2) rotate(45deg);
-        opacity: 0.9;
-      }
-    }
-
-    .twinkle-star {
-      position: absolute;
-      animation: twinkle 3s infinite ease-in-out;
-    }
-
-    /* Card / Content Container */
-    .content-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 22px;
-      z-index: 20;
-    }
-
-    /* Cute Heading */
-    .title {
-      font-size: clamp(2rem, 5.5vw, 3.2rem);
-      font-weight: 700;
-      color: #6d2847;
-      text-shadow: 0 4px 12px rgba(255, 120, 166, 0.35), 0 2px 0 #ffffff88;
-      letter-spacing: 0.5px;
-      animation: gentlePulse 3s ease-in-out infinite;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .title .heart-icon {
-      display: inline-block;
-      animation: heartbeat 1.4s ease-in-out infinite;
-      filter: drop-shadow(0 2px 6px rgba(255, 77, 135, 0.4));
-    }
-
-    @keyframes gentlePulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.025); }
-    }
-
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      14% { transform: scale(1.25); }
-      28% { transform: scale(1); }
-      42% { transform: scale(1.2); }
-      70% { transform: scale(1); }
-    }
-
-    /* Panda Illustration Container */
-    .panda-wrapper {
-      position: relative;
-      width: clamp(190px, 32vw, 250px);
-      height: clamp(190px, 32vw, 250px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: pandaFloat 4s ease-in-out infinite;
-      filter: drop-shadow(0 15px 25px rgba(180, 80, 120, 0.2));
-    }
-
-    .panda-svg {
-      width: 100%;
-      height: 100%;
-      animation: pandaBreathe 4s ease-in-out infinite;
-      transform-origin: center bottom;
-    }
-
-    @keyframes pandaFloat {
-      0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-      25% {
-        transform: translateY(-8px) rotate(-1.5deg);
-      }
-      75% {
-        transform: translateY(5px) rotate(1.5deg);
-      }
-    }
-
-    @keyframes pandaBreathe {
-      0%, 100% {
-        transform: scale(1, 1);
-      }
-      50% {
-        transform: scale(1.035, 0.975);
-      }
-    }
-
-    /* Yes Button */
-    .btn-yes {
-      position: relative;
-      background: var(--white);
-      color: var(--primary-pink);
-      border: 3px solid #FFF0F5;
-      outline: none;
-      padding: 14px 44px;
-      font-size: clamp(1.25rem, 3.2vw, 1.55rem);
-      font-family: inherit;
-      font-weight: 700;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: var(--shadow-soft), inset 0 -3px 0 #ffe0eb;
-      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn-yes:hover {
-      transform: translateY(-5px) scale(1.06);
-      box-shadow: var(--shadow-hover), inset 0 -3px 0 #ffe0eb;
-      background: #FFFFFF;
-      color: var(--primary-pink-dark);
-      border-color: #ffffff;
-    }
-
-    .btn-yes:active {
-      transform: translateY(2px) scale(0.96);
-      box-shadow: 0 4px 10px rgba(255, 107, 157, 0.25);
-    }
-
-    /* Modal Backdrop / Overlay */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(80, 20, 50, 0.28);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.35s ease, visibility 0.35s ease;
-      z-index: 100;
-      padding: 20px;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* Modal Card */
-    .modal-card {
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 3px solid rgba(255, 255, 255, 0.9);
-      border-radius: 36px;
-      padding: clamp(28px, 6vw, 42px) clamp(24px, 5vw, 38px);
-      width: 100%;
-      max-width: 440px;
-      text-align: center;
-      box-shadow: 0 25px 60px rgba(180, 60, 110, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.6);
-      transform: scale(0.7) translateY(20px);
-      opacity: 0;
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .modal-overlay.active .modal-card {
-      transform: scale(1) translateY(0);
-      opacity: 1;
-    }
-
-    .modal-overlay.closing .modal-card {
-      transform: scale(0.85) translateY(15px);
-      opacity: 0;
-    }
-
-    /* Modal Title */
-    .modal-title {
-      font-size: clamp(1.6rem, 4.5vw, 2.1rem);
-      font-weight: 700;
-      color: #632342;
-      line-height: 1.35;
-      text-shadow: 0 2px 4px rgba(255, 107, 157, 0.15);
-    }
-
-    /* Tiny Smiling Panda in Modal */
-    .mini-panda-box {
-      width: 110px;
-      height: 110px;
-      margin: 4px auto;
-      filter: drop-shadow(0 8px 16px rgba(255, 105, 180, 0.2));
-      animation: miniPandaWiggle 3s ease-in-out infinite;
-    }
-
-    @keyframes miniPandaWiggle {
-      0%, 100% { transform: rotate(0deg) scale(1); }
-      25% { transform: rotate(-5deg) scale(1.05); }
-      75% { transform: rotate(5deg) scale(1.05); }
-    }
-
-    /* Modal Close Button */
-    .btn-close {
-      background: linear-gradient(135deg, #FF7BA5, #FF528A);
-      color: var(--white);
-      border: none;
-      outline: none;
-      padding: 12px 36px;
-      font-size: 1.2rem;
-      font-family: inherit;
-      font-weight: 700;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(255, 82, 138, 0.38), inset 0 2px 0 rgba(255, 255, 255, 0.35);
-      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-      letter-spacing: 0.3px;
-    }
-
-    .btn-close:hover {
-      transform: translateY(-3px) scale(1.06);
-      box-shadow: 0 12px 24px rgba(255, 82, 138, 0.48);
-      background: linear-gradient(135deg, #FF6998, #FF407A);
-    }
-
-    .btn-close:active {
-      transform: translateY(1px) scale(0.96);
-    }
-
-    /* Confetti Particle on Click */
-    .burst-heart {
-      position: fixed;
-      pointer-events: none;
-      z-index: 150;
-      animation: heartBurst 1.2s forwards cubic-bezier(0.12, 0.84, 0.4, 1);
-    }
-
-    @keyframes heartBurst {
-      0% {
-        transform: translate(0, 0) scale(0.4) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(var(--tx), var(--ty)) scale(1.4) rotate(var(--rot));
-        opacity: 0;
-      }
-    }
+    :root{--wine:#562d43;--berry:#8b4b69;--pink:#eea9c1;--pale:#fff8f6;--lilac:#d9c5ee;--gold:#bd9361;--ink:#483340;--shadow:0 24px 65px rgba(94,48,70,.13)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--pale);color:var(--ink);font-family:"DM Sans",sans-serif}
+    a{color:inherit}
+    .topbar{position:absolute;z-index:2;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;padding:25px clamp(20px,5vw,70px);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#744b60}
+    .seal{width:42px;height:42px;border:1px solid #d6aebe;border-radius:50%;display:grid;place-items:center;font:1.4rem Parisienne;text-transform:none;letter-spacing:0;background:#fff8f6a8}
+    .topbar a{text-decoration:none;border-bottom:1px solid #c991a8;padding-bottom:5px}
+    .hero{min-height:94svh;display:grid;place-items:center;position:relative;overflow:hidden;padding:104px 22px 80px;text-align:center;background:radial-gradient(ellipse at 50% 43%,#fffdfb 0,transparent 39%),radial-gradient(ellipse at 16% 30%,#f8dbe5 0,transparent 46%),radial-gradient(ellipse at 85% 73%,#e9ddf4 0,transparent 40%),#fff8f6}
+    .hero:before,.hero:after{content:"✿";position:absolute;color:#e7b9cb;opacity:.46;font-size:clamp(7rem,17vw,14rem);line-height:1;pointer-events:none}
+    .hero:before{left:-2%;top:27%;transform:rotate(-18deg)}.hero:after{right:-1%;bottom:7%;color:#c8b1dd;transform:rotate(17deg)}
+    .hero-inner{max-width:870px;position:relative;z-index:1;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+    .eyebrow{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:#94657a;margin:0 0 20px}
+    h1,h2,h3,p{margin-top:0}
+    h1{font:400 clamp(4rem,10vw,8.5rem)/.83 Italiana,serif;letter-spacing:-.045em;color:var(--wine);margin:0}
+    h1 em{display:block;font:clamp(2.5rem,7vw,5.2rem)/1 Parisienne,cursive;color:var(--berry);letter-spacing:0;margin-top:.16em}
+    .hero-art{display:block;width:min(27vw,210px);min-width:125px;margin:6px auto -10px;filter:drop-shadow(0 20px 22px rgba(96,54,76,.2));animation:float 5s ease-in-out infinite;mix-blend-mode:multiply}
+    .hero-copy{font:1.2rem/1.7 Italiana,serif;color:#6d4c5d;max-width:540px;margin:18px auto 26px}
+    .button{display:inline-flex;align-items:center;gap:10px;background:var(--wine);color:white;text-decoration:none;border:0;border-radius:99px;padding:14px 22px;font:600 .85rem "DM Sans",sans-serif;letter-spacing:.03em;box-shadow:0 11px 25px #562d4330;cursor:pointer;transition:transform .2s,background .2s}
+    .button:hover{transform:translateY(-3px);background:#75425c}
+    .scroll-note{position:absolute;bottom:22px;left:0;width:100%;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:#956e7e}
+    .ribbon{overflow:hidden;background:var(--wine);color:#fff7f4;padding:13px 0;transform:rotate(-1deg);margin:-7px -4px 0;position:relative;z-index:1}
+    .ribbon-track{display:flex;width:max-content;animation:marquee 28s linear infinite}
+    .ribbon span{white-space:nowrap;font:1rem Italiana,serif;letter-spacing:.12em;padding-right:3rem}.ribbon b{color:#edb7cb;font-weight:400;padding-left:3rem}
+    .collection{padding:105px 22px 115px;background:linear-gradient(180deg,#fff8f6,#faedf2 60%,#fff9f6)}
+    .section-head{max-width:690px;margin:0 auto 46px;text-align:center}
+    .section-head h2{font:400 clamp(2.8rem,6vw,5rem)/1 Italiana,serif;color:var(--wine);margin:0 0 14px;letter-spacing:-.025em}
+    .section-head p{font-size:.95rem;line-height:1.75;color:#795f6c;margin:0}
+    .grid{max-width:1190px;margin:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+    .card{min-width:0;background:#fffaf9;border:1px solid #ead6df;border-radius:7px;padding:10px 10px 19px;box-shadow:0 14px 36px rgba(84,44,65,.08);transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s;cursor:zoom-in;animation:cardIn .7s both}
+    .card:nth-child(2){animation-delay:.06s}.card:nth-child(3){animation-delay:.12s}.card:nth-child(4){animation-delay:.18s}.card:nth-child(5){animation-delay:.24s}.card:nth-child(6){animation-delay:.3s}.card:nth-child(7){animation-delay:.36s}.card:nth-child(8){animation-delay:.42s}
+    .card:hover{transform:translateY(-7px) rotate(-.4deg);box-shadow:0 22px 45px rgba(84,44,65,.16)}
+    .card img{width:100%;display:block;aspect-ratio:2/3;object-fit:cover;border-radius:4px;background:#f4dce6}
+    .card-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:15px 5px 0}
+    .card h3{font:400 1.35rem Italiana,serif;color:var(--wine);margin:0}
+    .edition{font-size:.58rem;text-transform:uppercase;letter-spacing:.13em;color:#a0788a;white-space:nowrap}
+    .note{padding:88px 22px;background:#fffaf6;display:grid;place-items:center;text-align:center}
+    .note-card{max-width:740px;padding:clamp(32px,7vw,68px);background:#fff;border:1px solid #edcbd7;box-shadow:var(--shadow);position:relative}
+    .note-card:before{content:"a tiny love note";position:absolute;top:-18px;left:50%;transform:translateX(-50%) rotate(-2deg);padding:7px 23px;background:#e9b3c4;color:white;font:1.15rem Parisienne;white-space:nowrap}
+    .note h2{font:400 clamp(2.8rem,6vw,4.6rem)/1.02 Italiana,serif;color:var(--wine);margin:0 0 20px}
+    .note p{font:1.15rem/1.85 Italiana,serif;color:#704e5e;margin:0}
+    .note .sign{font:2rem Parisienne;color:var(--berry);margin-top:25px}
+    footer{padding:24px;text-align:center;background:#f5e2e9;color:#805d6e;font-size:.66rem;letter-spacing:.15em;text-transform:uppercase}
+    .lightbox{position:fixed;inset:0;z-index:10;background:#261b25e8;display:none;align-items:center;justify-content:center;padding:22px;backdrop-filter:blur(8px)}
+    .lightbox.open{display:flex}.lightbox img{display:block;max-width:min(88vw,570px);max-height:86vh;object-fit:contain;border:7px solid #fff8f6;border-radius:6px;box-shadow:0 30px 80px #0007}
+    .close{position:absolute;top:18px;right:22px;width:44px;height:44px;border:1px solid #ffffff80;border-radius:50%;background:transparent;color:white;font-size:1.6rem;cursor:pointer}
+    .lightbox-label{position:absolute;bottom:18px;color:white;font:1.1rem Italiana,serif}
+    @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}@keyframes float{0%,100%{transform:translateY(4px) rotate(1deg)}50%{transform:translateY(-8px) rotate(-1deg)}}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:680px;gap:18px}.hero{min-height:88svh}}
+    @media(max-width:480px){.grid{gap:11px}.card{padding:7px 7px 13px}.card h3{font-size:1.12rem}.card-meta{padding:12px 3px 0}.edition{font-size:.5rem}.collection{padding:76px 12px 85px}.hero-copy{font-size:1.08rem}.topbar{padding:18px 18px}.topbar span:last-child{font-size:.56rem}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
-
-  <!-- Floating Background Hearts & Sparkles -->
-  <div class="background-decorations" id="bgDecorations"></div>
-
-  <!-- Main View -->
-  <main class="app-container" id="appContainer">
-    <div class="content-box">
-      <!-- Heading -->
-      <h1 class="title">
-        Ek Question Hai <span class="heart-icon">💖</span>
-      </h1>
-
-      <!-- Cute Panda SVG -->
-      <div class="panda-wrapper" aria-label="Cute Kawaii Panda">
-        <svg class="panda-svg" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Soft Background Glow -->
-          <circle cx="120" cy="125" r="95" fill="rgba(255, 255, 255, 0.45)" />
-
-          <!-- Panda Ears -->
-          <!-- Left Ear -->
-          <circle cx="58" cy="62" r="32" fill="#2E2B38" />
-          <circle cx="58" cy="62" r="18" fill="#FF9EBE" opacity="0.8" />
-          <!-- Right Ear -->
-          <circle cx="182" cy="62" r="32" fill="#2E2B38" />
-          <circle cx="182" cy="62" r="18" fill="#FF9EBE" opacity="0.8" />
-
-          <!-- Panda Body (Peeking behind head) -->
-          <ellipse cx="120" cy="190" rx="66" ry="46" fill="#FFFFFF" stroke="#2E2B38" stroke-width="6" />
-          
-          <!-- Cute Paws holding small heart -->
-          <ellipse cx="72" cy="195" rx="19" ry="17" fill="#2E2B38" />
-          <circle cx="72" cy="195" r="7" fill="#FFB7CF" />
-          <ellipse cx="168" cy="195" rx="19" ry="17" fill="#2E2B38" />
-          <circle cx="168" cy="195" r="7" fill="#FFB7CF" />
-
-          <!-- Panda Head -->
-          <ellipse cx="120" cy="122" rx="82" ry="74" fill="#FFFFFF" stroke="#2E2B38" stroke-width="6.5" />
-
-          <!-- Eye Patches (Rotated kawaii oval patches) -->
-          <ellipse cx="80" cy="115" rx="23" ry="29" fill="#2E2B38" transform="rotate(-18 80 115)" />
-          <ellipse cx="160" cy="115" rx="23" ry="29" fill="#2E2B38" transform="rotate(18 160 115)" />
-
-          <!-- Sparkly Eyes -->
-          <!-- Left Eye -->
-          <ellipse cx="82" cy="114" rx="11" ry="13" fill="#FFFFFF" />
-          <circle cx="85" cy="110" r="5.5" fill="#2E2B38" />
-          <circle cx="86.5" cy="108.5" r="2.2" fill="#FFFFFF" />
-          <circle cx="80" cy="118" r="1.6" fill="#FFFFFF" />
-
-          <!-- Right Eye -->
-          <ellipse cx="158" cy="114" rx="11" ry="13" fill="#FFFFFF" />
-          <circle cx="155" cy="110" r="5.5" fill="#2E2B38" />
-          <circle cx="153.5" cy="108.5" r="2.2" fill="#FFFFFF" />
-          <circle cx="160" cy="118" r="1.6" fill="#FFFFFF" />
-
-          <!-- Rosy Blushing Cheeks -->
-          <ellipse cx="56" cy="142" rx="16" ry="10" fill="#FFA5C3" opacity="0.85" />
-          <ellipse cx="184" cy="142" rx="16" ry="10" fill="#FFA5C3" opacity="0.85" />
-          <!-- Tiny Cheek Sparkles -->
-          <circle cx="52" cy="140" r="1.8" fill="#FFFFFF" />
-          <circle cx="188" cy="140" r="1.8" fill="#FFFFFF" />
-
-          <!-- Cute Nose -->
-          <ellipse cx="120" cy="128" rx="8.5" ry="6" fill="#2E2B38" />
-          <ellipse cx="119" cy="126.5" rx="3" ry="1.5" fill="#FFFFFF" opacity="0.7" />
-
-          <!-- Happy Cat/W-shaped Mouth -->
-          <path d="M 112 135 C 112 142 119 142 120 136 C 121 142 128 142 128 135" stroke="#2E2B38" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-          
-          <!-- Open sweet smile tongue -->
-          <path d="M 116 138 C 116 146 124 146 124 138 Z" fill="#FF7B9D" />
-
-          <!-- Little Heart Between Paws -->
-          <g transform="translate(120, 186) scale(0.95)">
-            <path d="M 0 -7 C -6 -15 -17 -7 -17 3 C -17 12 0 20 0 20 C 0 20 17 12 17 3 C 17 -7 6 -15 0 -7 Z" fill="#FF528A" />
-            <circle cx="-5" cy="0" r="2" fill="#FFFFFF" opacity="0.6" />
-          </g>
-        </svg>
+  <header class="topbar"><span class="seal" aria-hidden="true">for you</span><span>made with all my heart</span><a href="#collection">the collection ↓</a></header>
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-inner">
+        <p class="eyebrow">a little something for your day</p>
+        <h1 id="title">Princess <em>Day</em></h1>
+        <img class="hero-art" src="assets/princess-day/figure-02.jpg" alt="A custom pearl-white princess collectible figure in a pink display box">
+        <p class="hero-copy">Eight tiny collectible versions, made from favorite colors, outfits, and all the little things that make you you.</p>
+        <a class="button" href="#collection">Open your collection <span aria-hidden="true">✧</span></a>
       </div>
-
-      <!-- Yes Button -->
-      <button class="btn-yes" id="yesBtn" aria-haspopup="dialog">
-        Yes 💗
-      </button>
-    </div>
+      <div class="scroll-note">a gallery of little keepsakes · scroll to explore</div>
+    </section>
+    <div class="ribbon" aria-hidden="true"><div class="ribbon-track"><span>ONE OF A KIND <b>✿</b> A LITTLE POCKET OF MAGIC <b>✧</b> MADE JUST FOR YOU <b>♡</b></span><span>ONE OF A KIND <b>✿</b> A LITTLE POCKET OF MAGIC <b>✧</b> MADE JUST FOR YOU <b>♡</b></span></div></div>
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+      <div class="section-head"><p class="eyebrow">your very own toy shelf</p><h2 id="collection-title">The little legends</h2><p>Tap any keepsake to see it up close. Every figure is a fresh, playful illustration inspired by a different memory.</p></div>
+      <div class="grid">
+        <article class="card" tabindex="0" role="button" aria-label="View Moonlit Muse figure larger" data-title="Moonlit Muse"><img src="assets/princess-day/figure-01.jpg" alt="A dark-haired collectible doll in a black and lilac jeweled dress"><div class="card-meta"><h3>Moonlit Muse</h3><span class="edition">01 · midnight</span></div></article>
+        <article class="card" tabindex="0" role="button" aria-label="View Pearl Daydream figure larger" data-title="Pearl Daydream"><img src="assets/princess-day/figure-02.jpg" alt="A dark-haired princess figure in a pearl-white embroidered dress"><div class="card-meta"><h3>Pearl Daydream</h3><span class="edition">02 · heirloom</span></div></article>
+        <article class="card" tabindex="0" role="button" aria-label="View Bluebell Buddy figure larger" data-title="Bluebell Buddy"><img src="assets/princess-day/figure-03.jpg" alt="A cute dark-haired figure in a soft blue outfit with tiny accessories"><div class="card-meta"><h3>Bluebell Buddy</h3><span class="edition">03 · daydream</span></div></article>
+        <article class="card" tabindex="0" role="button" aria-label="View Rose Royale figure larger" data-title="Rose Royale"><img src="assets/princess-day/figure-04.jpg" alt="A little princess figure in a rose-pink embroidered outfit"><div class="card-meta"><h3>Rose Royale</h3><span class="edition">04 · rose gold</span></div></article>
+        <article class="card" tabindex="0" role="button" aria-label="View Plushie Princess figure larger" data-title="Plushie Princess"><img src="assets/princess-day/figure-05.jpg" alt="A collectible figure in a striped cardigan holding a fluffy pink plush"><div class="card-meta"><h3>Plushie Princess</h3><span class="edition">05 · cuddle club</span></div></article>
+        <article class="card" tabindex="0" role="button" aria-label="View Blue Buddy figure larger" data-title="Blue Buddy"><img src="assets/princess-day/figure-06.jpg" alt="A cozy striped-cardigan figure hugging a bright blue plush friend"><div class="card-meta"><h3>Blue Buddy</h3><span class="edition">06 · besties</span></div></article>
+        <article class="card" tabindex="0" role="button" aria-label="View Sugarplum Spark figure larger" data-title="Sugarplum Spark"><img src="assets/princess-day/figure-07.jpg" alt="A playful figure in an orange hoodie with tiny pastel character patches"><div class="card-meta"><h3>Sugarplum Spark</h3><span class="edition">07 · sunshine</span></div></article>
+        <article class="card" tabindex="0" role="button" aria-label="View Starlight Darling figure larger" data-title="Starlight Darling"><img src="assets/princess-day/figure-08.jpg" alt="A dark-haired figure in an elegant black outfit with sparkling details"><div class="card-meta"><h3>Starlight Darling</h3><span class="edition">08 · starlight</span></div></article>
+      </div>
+    </section>
+    <section class="note"><div class="note-card"><p class="eyebrow">a reminder for today</p><h2>You make every little thing brighter.</h2><p>So here’s a tiny shelf full of you: your sparkle, your softness, your silly side, and all the ways you make ordinary days feel special. Happy Princess Day, beautiful.</p><div class="sign">always yours ♡</div></div></section>
   </main>
-
-  <!-- Cute Modal Popup -->
-  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalQuestion">
-    <div class="modal-card">
-      <h2 class="modal-title" id="modalQuestion">
-        Kaisi hai Rasmaliii?? 🥹💕
-      </h2>
-
-      <!-- Tiny Smiling Panda Face -->
-      <div class="mini-panda-box">
-        <svg viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
-          <!-- Ears -->
-          <circle cx="36" cy="36" r="22" fill="#2E2B38" />
-          <circle cx="36" cy="36" r="12" fill="#FF9EBE" opacity="0.8" />
-          <circle cx="124" cy="36" r="22" fill="#2E2B38" />
-          <circle cx="124" cy="36" r="12" fill="#FF9EBE" opacity="0.8" />
-
-          <!-- Face Base -->
-          <ellipse cx="80" cy="80" rx="58" ry="50" fill="#FFFFFF" stroke="#2E2B38" stroke-width="5" />
-
-          <!-- Eye Patches -->
-          <ellipse cx="52" cy="74" rx="16" ry="20" fill="#2E2B38" transform="rotate(-15 52 74)" />
-          <ellipse cx="108" cy="74" rx="16" ry="20" fill="#2E2B38" transform="rotate(15 108 74)" />
-
-          <!-- Happy Curved Closed Eyes (Smiling ^_^) -->
-          <path d="M 45 74 Q 52 66 59 74" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" fill="none" />
-          <path d="M 101 74 Q 108 66 115 74" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" fill="none" />
-
-          <!-- Rosy Cheeks -->
-          <ellipse cx="36" cy="94" rx="12" ry="7.5" fill="#FFA5C3" opacity="0.9" />
-          <ellipse cx="124" cy="94" rx="12" ry="7.5" fill="#FFA5C3" opacity="0.9" />
-
-          <!-- Nose -->
-          <ellipse cx="80" cy="84" rx="6" ry="4.5" fill="#2E2B38" />
-
-          <!-- Cute Open Smile -->
-          <path d="M 74 91 Q 80 99 86 91" stroke="#2E2B38" stroke-width="3.5" stroke-linecap="round" fill="none" />
-          <path d="M 76 92 C 76 98 84 98 84 92 Z" fill="#FF6B9D" />
-        </svg>
-      </div>
-
-      <!-- Close Button -->
-      <button class="btn-close" id="closeBtn">
-        Hehe 💖
-      </button>
-    </div>
-  </div>
-
-  <!-- Vanilla JavaScript Logic -->
+  <footer>a tiny handmade corner of the internet · happy princess day ♡</footer>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Figure preview"><button class="close" type="button" aria-label="Close preview">×</button><img src="" alt=""><div class="lightbox-label"></div></div>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const yesBtn = document.getElementById('yesBtn');
-      const closeBtn = document.getElementById('closeBtn');
-      const modalOverlay = document.getElementById('modalOverlay');
-      const bgDecorations = document.getElementById('bgDecorations');
-
-      // Decorative Floating Hearts & Stars
-      const heartSymbols = ['💖', '💕', '🌸', '✨', '💗', '🍓', '🧁'];
-      const particleCount = 24;
-
-      for (let i = 0; i < particleCount; i++) {
-        const item = document.createElement('div');
-        const isHeart = Math.random() > 0.35;
-        
-        if (isHeart) {
-          item.className = 'heart';
-          item.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-          item.style.fontSize = `${Math.random() * 18 + 14}px`;
-          item.style.left = `${Math.random() * 96}%`;
-          item.style.animationDuration = `${Math.random() * 5 + 6}s`;
-          item.style.animationDelay = `${Math.random() * 7}s`;
-        } else {
-          item.className = 'twinkle-star';
-          item.textContent = '✦';
-          item.style.color = '#FFFFFF';
-          item.style.fontSize = `${Math.random() * 14 + 10}px`;
-          item.style.left = `${Math.random() * 95}%`;
-          item.style.top = `${Math.random() * 90}%`;
-          item.style.animationDuration = `${Math.random() * 2 + 2}s`;
-          item.style.animationDelay = `${Math.random() * 3}s`;
-        }
-        
-        bgDecorations.appendChild(item);
-      }
-
-      // Heart Burst effect on Yes click
-      function createHeartBurst(x, y) {
-        const burstCount = 16;
-        const emojis = ['💖', '💕', '💗', '✨', '🌸'];
-
-        for (let i = 0; i < burstCount; i++) {
-          const heart = document.createElement('div');
-          heart.className = 'burst-heart';
-          heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-
-          const angle = (Math.PI * 2 * i) / burstCount + (Math.random() - 0.5) * 0.5;
-          const distance = Math.random() * 110 + 70;
-          const tx = `${Math.cos(angle) * distance}px`;
-          const ty = `${Math.sin(angle) * distance - 20}px`;
-          const rot = `${(Math.random() - 0.5) * 80}deg`;
-
-          heart.style.setProperty('--tx', tx);
-          heart.style.setProperty('--ty', ty);
-          heart.style.setProperty('--rot', rot);
-          heart.style.left = `${x}px`;
-          heart.style.top = `${y}px`;
-          heart.style.fontSize = `${Math.random() * 16 + 18}px`;
-
-          document.body.appendChild(heart);
-
-          setTimeout(() => {
-            heart.remove();
-          }, 1200);
-        }
-      }
-
-      // Open Modal
-      yesBtn.addEventListener('click', (e) => {
-        const rect = yesBtn.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        createHeartBurst(centerX, centerY);
-
-        modalOverlay.classList.remove('closing');
-        modalOverlay.classList.add('active');
-      });
-
-      // Close Modal Function
-      function closeModal() {
-        modalOverlay.classList.add('closing');
-        setTimeout(() => {
-          modalOverlay.classList.remove('active');
-          modalOverlay.classList.remove('closing');
-        }, 350);
-      }
-
-      closeBtn.addEventListener('click', closeModal);
-
-      // Close on clicking backdrop outside card
-      modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-          closeModal();
-        }
-      });
-
-      // ESC key to close
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-          closeModal();
-        }
-      });
-    });
+    const box=document.querySelector('#lightbox'), big=box.querySelector('img'), label=box.querySelector('.lightbox-label'), close=box.querySelector('.close');
+    function openCard(card){const img=card.querySelector('img');big.src=img.src;big.alt=img.alt;label.textContent=card.dataset.title;box.classList.add('open');close.focus();document.body.style.overflow='hidden'}
+    function closeCard(){box.classList.remove('open');document.body.style.overflow='';big.src=''}
+    document.querySelectorAll('.card').forEach(card=>{card.addEventListener('click',()=>openCard(card));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openCard(card)}})});
+    close.addEventListener('click',closeCard);box.addEventListener('click',e=>{if(e.target===box)closeCard()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCard()});
   </script>
 </body>
 </html>
