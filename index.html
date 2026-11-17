@@ -3,58 +3,68 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8dce7">
+  <meta name="theme-color" content="#d9edfa">
   <meta name="description" content="A little Happy Princess Day collection of custom kawaii collectible figures, made just for you.">
   <title>Happy Princess Day — A Little Figure Collection</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Parisienne&display=swap" rel="stylesheet">
   <style>
-    :root{--wine:#562d43;--berry:#8b4b69;--pink:#eea9c1;--pale:#fff8f6;--lilac:#d9c5ee;--gold:#bd9361;--ink:#483340;--shadow:0 24px 65px rgba(94,48,70,.13)}
+    :root{--wine:#244d72;--berry:#3e79a2;--pink:#93c7e4;--pale:#f3f8fc;--lilac:#dceafd;--gold:#b49c68;--ink:#293f53;--shadow:0 24px 65px rgba(36,77,114,.13)}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--pale);color:var(--ink);font-family:"DM Sans",sans-serif}
     a{color:inherit}
-    .topbar{position:absolute;z-index:2;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;padding:25px clamp(20px,5vw,70px);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#744b60}
-    .seal{width:42px;height:42px;border:1px solid #d6aebe;border-radius:50%;display:grid;place-items:center;font:1.4rem Parisienne;text-transform:none;letter-spacing:0;background:#fff8f6a8}
-    .topbar a{text-decoration:none;border-bottom:1px solid #c991a8;padding-bottom:5px}
-    .hero{min-height:94svh;display:grid;place-items:center;position:relative;overflow:hidden;padding:104px 22px 80px;text-align:center;background:radial-gradient(ellipse at 50% 43%,#fffdfb 0,transparent 39%),radial-gradient(ellipse at 16% 30%,#f8dbe5 0,transparent 46%),radial-gradient(ellipse at 85% 73%,#e9ddf4 0,transparent 40%),#fff8f6}
-    .hero:before,.hero:after{content:"✿";position:absolute;color:#e7b9cb;opacity:.46;font-size:clamp(7rem,17vw,14rem);line-height:1;pointer-events:none}
-    .hero:before{left:-2%;top:27%;transform:rotate(-18deg)}.hero:after{right:-1%;bottom:7%;color:#c8b1dd;transform:rotate(17deg)}
+    .topbar{position:absolute;z-index:2;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;padding:25px clamp(20px,5vw,70px);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#365c78}
+    .seal{width:42px;height:42px;border:1px solid #95bdd3;border-radius:50%;display:grid;place-items:center;font:1.4rem Parisienne;text-transform:none;letter-spacing:0;background:#f3f8fca8}
+    .topbar a{text-decoration:none;border-bottom:1px solid #5a9abd;padding-bottom:5px}
+    .hero{min-height:94svh;display:grid;place-items:center;position:relative;overflow:hidden;padding:104px 22px 80px;text-align:center;background:radial-gradient(ellipse at 50% 43%,#ffffff 0,transparent 39%),radial-gradient(ellipse at 16% 30%,#d9edfa 0,transparent 46%),radial-gradient(ellipse at 85% 73%,#dceafd 0,transparent 40%),#f3f8fc}
+    .hero:before,.hero:after{content:"✿";position:absolute;color:#a8cce2;opacity:.46;font-size:clamp(7rem,17vw,14rem);line-height:1;pointer-events:none}
+    .hero:before{left:-2%;top:27%;transform:rotate(-18deg)}.hero:after{right:-1%;bottom:7%;color:#a8c7e5;transform:rotate(17deg)}
     .hero-inner{max-width:870px;position:relative;z-index:1;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
-    .eyebrow{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:#94657a;margin:0 0 20px}
+    .eyebrow{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:#527994;margin:0 0 20px}
     h1,h2,h3,p{margin-top:0}
     h1{font:400 clamp(4rem,10vw,8.5rem)/.83 Italiana,serif;letter-spacing:-.045em;color:var(--wine);margin:0}
     h1 em{display:block;font:clamp(2.5rem,7vw,5.2rem)/1 Parisienne,cursive;color:var(--berry);letter-spacing:0;margin-top:.16em}
     .hero-art{display:block;width:min(27vw,210px);min-width:125px;margin:6px auto -10px;filter:drop-shadow(0 20px 22px rgba(96,54,76,.2));animation:float 5s ease-in-out infinite;mix-blend-mode:multiply}
-    .hero-copy{font:1.2rem/1.7 Italiana,serif;color:#6d4c5d;max-width:540px;margin:18px auto 26px}
-    .button{display:inline-flex;align-items:center;gap:10px;background:var(--wine);color:white;text-decoration:none;border:0;border-radius:99px;padding:14px 22px;font:600 .85rem "DM Sans",sans-serif;letter-spacing:.03em;box-shadow:0 11px 25px #562d4330;cursor:pointer;transition:transform .2s,background .2s}
-    .button:hover{transform:translateY(-3px);background:#75425c}
-    .scroll-note{position:absolute;bottom:22px;left:0;width:100%;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:#956e7e}
-    .ribbon{overflow:hidden;background:var(--wine);color:#fff7f4;padding:13px 0;transform:rotate(-1deg);margin:-7px -4px 0;position:relative;z-index:1}
+    .hero-copy{font:1.2rem/1.7 Italiana,serif;color:#47677e;max-width:540px;margin:18px auto 26px}
+    .button{display:inline-flex;align-items:center;gap:10px;background:var(--wine);color:white;text-decoration:none;border:0;border-radius:99px;padding:14px 22px;font:600 .85rem "DM Sans",sans-serif;letter-spacing:.03em;box-shadow:0 11px 25px #244d7230;cursor:pointer;transition:transform .2s,background .2s}
+    .button:hover{transform:translateY(-3px);background:#30688b}
+    .scroll-note{position:absolute;bottom:22px;left:0;width:100%;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:#6488a0}
+    .ribbon{overflow:hidden;background:var(--wine);color:#f7fbff;padding:13px 0;transform:rotate(-1deg);margin:-7px -4px 0;position:relative;z-index:1}
     .ribbon-track{display:flex;width:max-content;animation:marquee 28s linear infinite}
-    .ribbon span{white-space:nowrap;font:1rem Italiana,serif;letter-spacing:.12em;padding-right:3rem}.ribbon b{color:#edb7cb;font-weight:400;padding-left:3rem}
-    .collection{padding:105px 22px 115px;background:linear-gradient(180deg,#fff8f6,#faedf2 60%,#fff9f6)}
+    .ribbon span{white-space:nowrap;font:1rem Italiana,serif;letter-spacing:.12em;padding-right:3rem}.ribbon b{color:#a9d9ed;font-weight:400;padding-left:3rem}
+    .floral-band{padding:24px 20px 30px;text-align:center;background:#f2f8fc;color:#365c78}
+    .floral-band p{margin:0;font:1.28rem Parisienne,cursive;color:#3e79a2}
+    .floral-art{display:block;width:min(100%,660px);height:auto;margin:0 auto 5px;overflow:visible}
+    .music-section{padding:85px 22px;background:linear-gradient(145deg,#e3f1fb,#f4f9fc 55%,#dceafd);text-align:center}
+    .music-card{max-width:780px;margin:auto;padding:clamp(25px,5vw,48px);border:1px solid #b9d8e8;background:#ffffffbf;box-shadow:0 24px 55px #244d7218}
+    .music-card h2{font:400 clamp(2.6rem,6vw,4rem)/1 Italiana,serif;color:#244d72;margin:0 0 12px}
+    .music-card p{font-size:.9rem;color:#516b7d;margin:0 0 25px}
+    .song-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;box-shadow:0 14px 35px #244d7226}
+    .song-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .music-link{display:inline-block;margin-top:18px;font-size:.8rem;color:#30688b;text-decoration-thickness:1px;text-underline-offset:4px}
+    .collection{padding:105px 22px 115px;background:linear-gradient(180deg,#f3f8fc,#e6f1fa 60%,#f5f9fc)}
     .section-head{max-width:690px;margin:0 auto 46px;text-align:center}
     .section-head h2{font:400 clamp(2.8rem,6vw,5rem)/1 Italiana,serif;color:var(--wine);margin:0 0 14px;letter-spacing:-.025em}
-    .section-head p{font-size:.95rem;line-height:1.75;color:#795f6c;margin:0}
+    .section-head p{font-size:.95rem;line-height:1.75;color:#516b7d;margin:0}
     .grid{max-width:1190px;margin:auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
-    .card{min-width:0;background:#fffaf9;border:1px solid #ead6df;border-radius:7px;padding:10px 10px 19px;box-shadow:0 14px 36px rgba(84,44,65,.08);transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s;cursor:zoom-in;animation:cardIn .7s both}
+    .card{min-width:0;background:#f8fbfe;border:1px solid #cee0ec;border-radius:7px;padding:10px 10px 19px;box-shadow:0 14px 36px rgba(84,44,65,.08);transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s;cursor:zoom-in;animation:cardIn .7s both}
     .card:nth-child(2){animation-delay:.06s}.card:nth-child(3){animation-delay:.12s}.card:nth-child(4){animation-delay:.18s}.card:nth-child(5){animation-delay:.24s}.card:nth-child(6){animation-delay:.3s}.card:nth-child(7){animation-delay:.36s}.card:nth-child(8){animation-delay:.42s}
     .card:hover{transform:translateY(-7px) rotate(-.4deg);box-shadow:0 22px 45px rgba(84,44,65,.16)}
-    .card img{width:100%;display:block;aspect-ratio:2/3;object-fit:cover;border-radius:4px;background:#f4dce6}
+    .card img{width:100%;display:block;aspect-ratio:2/3;object-fit:cover;border-radius:4px;background:#dbeaf4}
     .card-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:15px 5px 0}
     .card h3{font:400 1.35rem Italiana,serif;color:var(--wine);margin:0}
-    .edition{font-size:.58rem;text-transform:uppercase;letter-spacing:.13em;color:#a0788a;white-space:nowrap}
-    .note{padding:88px 22px;background:#fffaf6;display:grid;place-items:center;text-align:center}
-    .note-card{max-width:740px;padding:clamp(32px,7vw,68px);background:#fff;border:1px solid #edcbd7;box-shadow:var(--shadow);position:relative}
-    .note-card:before{content:"a tiny love note";position:absolute;top:-18px;left:50%;transform:translateX(-50%) rotate(-2deg);padding:7px 23px;background:#e9b3c4;color:white;font:1.15rem Parisienne;white-space:nowrap}
+    .edition{font-size:.58rem;text-transform:uppercase;letter-spacing:.13em;color:#68859b;white-space:nowrap}
+    .note{padding:88px 22px;background:#f4f9fc;display:grid;place-items:center;text-align:center}
+    .note-card{max-width:740px;padding:clamp(32px,7vw,68px);background:#fff;border:1px solid #b9d8e8;box-shadow:var(--shadow);position:relative}
+    .note-card:before{content:"a tiny love note";position:absolute;top:-18px;left:50%;transform:translateX(-50%) rotate(-2deg);padding:7px 23px;background:#659bb8;color:white;font:1.15rem Parisienne;white-space:nowrap}
     .note h2{font:400 clamp(2.8rem,6vw,4.6rem)/1.02 Italiana,serif;color:var(--wine);margin:0 0 20px}
-    .note p{font:1.15rem/1.85 Italiana,serif;color:#704e5e;margin:0}
+    .note p{font:1.15rem/1.85 Italiana,serif;color:#48677c;margin:0}
     .note .sign{font:2rem Parisienne;color:var(--berry);margin-top:25px}
-    footer{padding:24px;text-align:center;background:#f5e2e9;color:#805d6e;font-size:.66rem;letter-spacing:.15em;text-transform:uppercase}
-    .lightbox{position:fixed;inset:0;z-index:10;background:#261b25e8;display:none;align-items:center;justify-content:center;padding:22px;backdrop-filter:blur(8px)}
-    .lightbox.open{display:flex}.lightbox img{display:block;max-width:min(88vw,570px);max-height:86vh;object-fit:contain;border:7px solid #fff8f6;border-radius:6px;box-shadow:0 30px 80px #0007}
+    footer{padding:24px;text-align:center;background:#e2eff7;color:#58758a;font-size:.66rem;letter-spacing:.15em;text-transform:uppercase}
+    .lightbox{position:fixed;inset:0;z-index:10;background:#182b3ce8;display:none;align-items:center;justify-content:center;padding:22px;backdrop-filter:blur(8px)}
+    .lightbox.open{display:flex}.lightbox img{display:block;max-width:min(88vw,570px);max-height:86vh;object-fit:contain;border:7px solid #f3f8fc;border-radius:6px;box-shadow:0 30px 80px #0007}
     .close{position:absolute;top:18px;right:22px;width:44px;height:44px;border:1px solid #ffffff80;border-radius:50%;background:transparent;color:white;font-size:1.6rem;cursor:pointer}
     .lightbox-label{position:absolute;bottom:18px;color:white;font:1.1rem Italiana,serif}
     @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}@keyframes float{0%,100%{transform:translateY(4px) rotate(1deg)}50%{transform:translateY(-8px) rotate(-1deg)}}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -77,6 +87,17 @@
       <div class="scroll-note">a gallery of little keepsakes · scroll to explore</div>
     </section>
     <div class="ribbon" aria-hidden="true"><div class="ribbon-track"><span>ONE OF A KIND <b>✿</b> A LITTLE POCKET OF MAGIC <b>✧</b> MADE JUST FOR YOU <b>♡</b></span><span>ONE OF A KIND <b>✿</b> A LITTLE POCKET OF MAGIC <b>✧</b> MADE JUST FOR YOU <b>♡</b></span></div></div>
+    <div class="floral-band" aria-label="Blue garden roses and lilies">
+      <svg class="floral-art" viewBox="0 0 700 190" role="img" aria-labelledby="floral-title">
+        <title id="floral-title">A little garden of roses and lilies</title>
+        <g fill="none" stroke="#6e9d87" stroke-width="4" stroke-linecap="round"><path d="M170 177Q175 127 223 83M530 178Q506 125 465 84M283 180Q293 127 324 102M418 180Q410 129 381 100"/></g>
+        <g fill="#80aa91" stroke="#f2f8fc" stroke-width="2"><path d="M184 142Q142 119 135 89Q174 98 193 128Z"/><path d="M201 119Q224 84 254 81Q239 115 208 133Z"/><path d="M510 143Q473 111 480 84Q512 101 523 133Z"/><path d="M496 123Q505 89 535 76Q530 111 505 137Z"/><path d="M292 151Q260 128 260 105Q290 116 301 143Z"/><path d="M406 151Q432 124 431 102Q402 119 398 144Z"/></g>
+        <g fill="#e78fa6" stroke="#fff5f7" stroke-width="3"><ellipse cx="220" cy="68" rx="17" ry="28"/><ellipse cx="220" cy="68" rx="17" ry="28" transform="rotate(60 220 68)"/><ellipse cx="220" cy="68" rx="17" ry="28" transform="rotate(120 220 68)"/><circle cx="220" cy="68" r="13" fill="#b95678"/><ellipse cx="480" cy="65" rx="13" ry="25"/><ellipse cx="480" cy="65" rx="13" ry="25" transform="rotate(60 480 65)"/><ellipse cx="480" cy="65" rx="13" ry="25" transform="rotate(120 480 65)"/><circle cx="480" cy="65" r="11" fill="#bd617d"/></g>
+        <g fill="#fffdf8" stroke="#a6cbe0" stroke-width="3"><path d="M350 97Q326 65 343 27Q356 48 353 77Q360 45 385 31Q387 70 358 98Q385 79 407 86Q390 109 359 107Q378 117 376 138Q350 128 348 108Q337 134 316 138Q315 113 341 101Q310 109 296 91Q323 79 350 97Z"/></g>
+        <g stroke="#d3a94b" stroke-width="3" stroke-linecap="round"><path d="M350 98L341 74M355 99L366 72M348 100L327 83"/></g><g fill="#d3a94b"><circle cx="341" cy="74" r="3"/><circle cx="366" cy="72" r="3"/><circle cx="327" cy="83" r="3"/></g>
+      </svg>
+      <p>roses, lilies &amp; a little love for you</p>
+    </div>
     <section class="collection" id="collection" aria-labelledby="collection-title">
       <div class="section-head"><p class="eyebrow">your very own toy shelf</p><h2 id="collection-title">The little legends</h2><p>Five keepsakes, each inspired by a favorite look, cozy buddy, or little memory. Tap one to see it up close.</p></div>
       <div class="grid">
@@ -86,6 +107,9 @@
         <article class="card" tabindex="0" role="button" aria-label="View Sugarplum Spark figure larger" data-title="Sugarplum Spark"><img src="assets/princess-day/figure-07.jpg" alt="A stylized collectible girl in an orange hoodie, lilac skirt, and flower buns"><div class="card-meta"><h3>Sugarplum Spark</h3><span class="edition">04 · sunshine</span></div></article>
         <article class="card" tabindex="0" role="button" aria-label="View Bluebell Princess figure larger" data-title="Bluebell Princess"><img src="assets/princess-day/figure-03.jpg" alt="A lifelike stylized blue-dress collectible figure with long dark hair"><div class="card-meta"><h3>Bluebell Princess</h3><span class="edition">05 · bluebell</span></div></article>
       </div>
+    </section>
+    <section class="music-section" aria-labelledby="music-title">
+      <div class="music-card"><p class="eyebrow">press play, princess</p><h2 id="music-title">A song for you</h2><p>Dagabaaz Re · from Dabangg 2</p><div class="song-frame"><iframe src="https://www.youtube-nocookie.com/embed/NRYlZqvTSSs?rel=0" title="Dagabaaz Re full song from Dabangg 2, official T-Series video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><a class="music-link" href="https://www.youtube.com/watch?v=NRYlZqvTSSs" target="_blank" rel="noopener noreferrer">Watch “Dagabaaz Re” on YouTube ↗</a></div>
     </section>
     <section class="note"><div class="note-card"><p class="eyebrow">a reminder for today</p><h2>You make every little thing brighter.</h2><p>So here’s a tiny shelf full of your sparkle, your softness, your silly side, and all the ways you make ordinary days feel special. Happy Princess Day, beautiful.</p><div class="sign">always yours ♡</div></div></section>
   </main>
